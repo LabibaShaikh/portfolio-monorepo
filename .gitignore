@@ -4,3 +4,13 @@
 **/.env
 **/.env.*
 !**/.env.example
+node_modules/
+**/node_modules/
+build/
+**/build/
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+.DS_Store
+**/.DS_Store
+*.o
+*.obj
