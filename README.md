@@ -42,7 +42,6 @@ RMIT machine-learning capstone evaluating multiclass referral-priority predictio
 
 ### Systems programming
 
-- [Systems Programming Assessment](projects/systems-programming-assessment) — C++ assessment covering data structures, image/pixel handling and date logic.
 - [Memory Leakers APT](projects/memory-leakers-apt) — C/C++ command-line assignment enhancement with automated fixtures.
 - [Vacuum Cleaner Simulator](projects/vacuum-cleaner-simulator) — C++ simulation project.
 
