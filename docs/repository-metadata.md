@@ -10,4 +10,7 @@
 
 ## Profile links
 
-Add a personal website or LinkedIn URL only after confirming the final public URL. The current portfolio links to the GitHub profile and does not invent an unavailable website.
+- GitHub: https://github.com/LabibaShaikh
+- Personal portfolio: https://labiba-dev.au
+
+The personal portfolio site's implementation is intentionally not mirrored here; only its public link is included.

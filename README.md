@@ -6,6 +6,8 @@ This portfolio presents selected university and personal projects from my Bachel
 
 The directories under `projects/` are review-friendly snapshots. The original GitHub repositories remain the source of truth for complete history, branches and contribution context.
 
+**Personal portfolio:** [labiba-dev.au](https://labiba-dev.au) · **GitHub:** [LabibaShaikh](https://github.com/LabibaShaikh)
+
 ## Featured projects
 
 | Project | Technologies | Engineering focus |
@@ -44,5 +46,6 @@ Build and test commands are documented only where they were verified from the so
 - [Project inventory and audit](docs/project-audit.md)
 - [History, attribution, licensing and privacy notes](docs/provenance.md)
 - [Original GitHub repositories](https://github.com/LabibaShaikh?tab=repositories)
+- [Personal project portfolio](https://labiba-dev.au)
 
 The Minecraft Maze Runner source repository is linked in its project page. Its source snapshot was added from the uploaded archive; the archive did not include Git metadata, so the original repository remains the source of truth for complete history. The Colonoscopy Referral Triage project includes privacy-safe notebooks and documentation; patient-level data was excluded.
