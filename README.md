@@ -1,6 +1,6 @@
 # Shaikh Naima Labiba
 
-## Software Engineer | Computer Science Graduate
+## Software Engineer | Bachelor of Computer Science, RMIT University
 
 RMIT University Bachelor of Computer Science graduate focused on C++ systems programming, algorithms, concurrency, full-stack development and applied machine learning. This portfolio highlights engineering decisions, testing approaches, debugging work and collaborative delivery rather than treating coursework as production software.
 
@@ -93,5 +93,6 @@ Directories under `projects/` are curated snapshots with descriptive portfolio n
 - [Provenance, licensing and privacy notes](docs/provenance.md)
 - [Project naming map](docs/project-names.md)
 - [Microsoft IC2 interview guide](docs/microsoft-ic2-guide.md)
+- [Microsoft IC2 portfolio summary](docs/microsoft-ic2-portfolio-summary.md)
 
 Build and test commands are documented only where source instructions or local verification support them. This repository does not claim that every snapshot currently builds.

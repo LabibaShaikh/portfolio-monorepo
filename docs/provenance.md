@@ -20,4 +20,4 @@ The snapshot excludes generated dependencies, build output, compiled objects, no
 
 Before publishing additional projects, check for API keys, database credentials, private datasets, patient-level data, personal contact details and university restrictions.
 
-The Soil Organics snapshot currently contains a source configuration file with hard-coded database credentials inherited from the original project. Do not treat this as safe to redistribute: rotate the credential and remove or redact it before the next public release. The capstone patient dataset was intentionally excluded.
+The Soil Organics snapshot previously contained hard-coded database credentials inherited from the original project. Runtime configuration now requires environment variables, and only placeholders are committed in `.env.example` files. Any credential previously used with the original host must still be rotated by its owner because it remains exposed in repository history; this change does not rewrite history. The capstone patient dataset was intentionally excluded.

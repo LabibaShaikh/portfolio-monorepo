@@ -10,9 +10,7 @@ Four source repositories were empty at mirroring time and retain placeholder REA
 
 The Maze Runner source was added from the uploaded ZIP archive. The archive contains 58 source, documentation and test files but no Git metadata, so its original commit history is not preserved in this monorepo.
 
-The capstone entry links to `https://github.com/rmit-computing-technologies/Programming-Project-1.git`. GitHub returned 404 through this session, so no source files, languages or individual contribution claims were copied from it.
-
-An uploaded archive subsequently supplied the capstone README and notebooks. The notebooks were added with outputs cleared. The archive's patient-level CSV and sample patient JSON were excluded because they contain healthcare and operational data.
+The capstone entry links to `https://github.com/rmit-computing-technologies/Programming-Project-1.git`. GitHub returned 404 through this session. An uploaded archive subsequently supplied the capstone README and notebooks; the notebooks were added with outputs cleared. The archive's patient-level CSV and sample patient JSON were excluded because they contain healthcare and operational data.
 
 ## Verified findings
 
@@ -25,7 +23,7 @@ An uploaded archive subsequently supplied the capstone README and notebooks. The
 
 ## Incomplete documentation and test gaps
 
-- The Soil Organics backend declares no real test command; the frontend has two visible test files but was not run against a configured database.
+- The Soil Organics backend declares no real test command; the frontend has two visible test files and they pass with the committed lockfile after dependency installation, but no database integration test was run.
 - Maze Runner has substantial fixtures but requires the external `mcpp` library and Minecraft server.
 - The machine-learning capstone contains notebooks rather than a packaged application and has no reproducible dependency lockfile.
 - Several small coursework repositories have limited README content and are not featured.
@@ -39,14 +37,14 @@ An uploaded archive subsequently supplied the capstone README and notebooks. The
 
 ## Security and privacy findings
 
-- `projects/soil-organics-platform/soil-express/src/database/config.js` contains hard-coded database credentials. Treat them as compromised, rotate them, move configuration to environment variables and remove the credential from any future public snapshot. This audit does not print the secret.
+- The original Soil Organics snapshot contained hard-coded database credentials in both backend configuration files. Runtime source now reads required environment variables and no credential value is printed here. Treat any historically exposed credential as compromised and rotate it.
 - The capstone's patient-level CSV and sample patient JSON were excluded. The notebooks' saved outputs were cleared.
 - Student numbers, team names and third-party assets remain in some source documentation; review whether each is appropriate for public redistribution.
-- No `.env`, private key or PEM file is currently present in the portfolio snapshot.
+- No real `.env`, private key or PEM file is currently present in the portfolio snapshot; placeholder `.env.example` files are intentional.
 
 ## Recommendations
 
-1. Rotate and remove the Soil Organics database credential before any further distribution.
+1. Rotate the historically exposed Soil Organics database credential before any further distribution.
 2. Add a real backend test suite and environment-based configuration to Soil Organics.
 3. Add a dependency/environment specification for the ML capstone using de-identified data.
 4. Add deterministic file-content tests for Concurrent File Copy.
@@ -55,11 +53,11 @@ An uploaded archive subsequently supplied the capstone README and notebooks. The
 
 ## Validation status
 
-**Passed:** Markdown/project-path validation, diff whitespace validation, sensitive-file filename checks, capstone notebook JSON validation, Concurrent File Copy build and multi-file content smoke test, and Memory Allocation Simulator compilation with `make all`.
+**Passed:** Markdown/project-path validation, diff whitespace validation, sensitive-file filename checks, capstone notebook JSON/privacy validation, updated backend configuration syntax checks, Concurrent File Copy build and multi-file content smoke test, Memory Allocation Simulator compilation with `make all`, and Soil Organics frontend tests (`CI=true npm test -- --watchAll=false`, 2 suites/4 tests).
 
-**Failed or blocked:** Soil Organics frontend tests could not start because `react-scripts` is not installed in the snapshot; Maze Runner requires unavailable `mcpp` and Minecraft; the Memory Allocation Simulator generator requires the missing `bc` utility.
+**Failed or blocked:** Maze Runner requires unavailable `mcpp` and Minecraft; the Memory Allocation Simulator generator requires the missing `bc` utility. Soil frontend tests pass but emit existing React DOM warnings and Jest reports open handles after completion.
 
-**Not performed:** Full npm installation, database integration tests, Minecraft integration tests, model retraining, and external-link availability checks.
+**Not performed:** Soil Organics database integration tests, Minecraft integration tests, model retraining, and external-link availability checks. `npm ci` reported 81 dependency audit findings in the legacy Create React App dependency tree; no broad upgrade was applied.
 
 ## Maze Runner provenance
 

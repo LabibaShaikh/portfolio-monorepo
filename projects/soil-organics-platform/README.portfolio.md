@@ -34,6 +34,9 @@ The original instructions require separate frontend and backend processes:
 ```bash
 cd soil-express
 npm install
+set -a
+source .env
+set +a
 node server.js
 
 cd ../soil-frontend
@@ -41,7 +44,9 @@ npm install
 npm start
 ```
 
-The backend requires a configured MySQL database. The admin portal has its own package manifest and startup instructions.
+Copy `soil-express/.env.example` to `soil-express/.env` and replace every placeholder with local database settings before starting the backend. The backend now fails explicitly when required database variables are absent; no database endpoint or password is included in this snapshot. The admin backend uses the same variables; copy its `.env.example` before starting it. Do not expose database variables through the React application's `REACT_APP_*` build variables.
+
+The recipe search uses `REACT_APP_SPOONACULAR_API_KEY` if configured locally. Because React build variables are delivered to the browser, treat that key as public and use a restricted/rotatable key; it is not included in this repository.
 
 ## Testing
 
@@ -49,4 +54,4 @@ The frontend includes `ReviewModal.test.js` and `ShoppingCart.test.js`, with `np
 
 ## Security and maintainability findings
 
-The copied backend configuration contains hard-coded database credentials. Do not reuse or publish them; rotate the credential and move configuration to environment variables before any further distribution. The server also registers cart routes through more than one path, which should be consolidated and covered by integration tests.
+The original snapshot contained hard-coded database connection details in both backend configurations. They have been replaced with required environment variables in this portfolio snapshot. Any credential previously used with the original host must still be rotated by its owner because it was present in the source history. The server also registers cart routes through more than one path, which should be consolidated and covered by integration tests.

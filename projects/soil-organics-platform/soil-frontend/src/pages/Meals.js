@@ -41,15 +41,11 @@ function Meals() {
 
 
           // Construct the API URL
-        console.log("API Key:", process.env.REACT_APP_SPOONACULAR_API_KEY);
-        
         const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&diet=${searchParams.diet}&excludeIngredients=${searchParams.excludeIngredients}&maxCalories=${searchParams.maxCalories}`;
-        console.log("API URL:", apiUrl);  // Check the constructed URL in the console
         // Fetch recipes from the API
         fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
-                console.log("Fetched data:", data);  // Log fetched data to see what is returned
                 if (data.results) {
                     setRecipes(data.results);
                 } else {
