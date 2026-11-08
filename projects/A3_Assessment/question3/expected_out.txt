@@ -1,0 +1,21 @@
+
+*** Q3 PART 1 ***
+Exam date: 10/6/2021 (738256) 
+Result release date: 12/7/2021 (738288) 
+Days to get results = 32
+Exam end date: 11/6/2021
+Result Date Last Year: 12/7/2020
+
+*** Q3 PART 2 ***
+date1: 10/6/2020, date2: 28/2/2017
+date1 > date2
+
+*** Q3 PART 3 ***
+date3: 10/6/1913
+++date3: 11/6/1913
+date3--: 10/6/1913
+
+*** Q3 PART 4 ***
+date3: 10/6/1913
+date2: 10/12/1913
+

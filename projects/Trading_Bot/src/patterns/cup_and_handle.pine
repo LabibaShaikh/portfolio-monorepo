@@ -1,0 +1,38 @@
+//@version=5
+import "../enums/pattern_types.pine" as pt
+import "../enums/detection_status.pine" as ds
+import "../types/pattern_info.pine" as pi
+import "../utils/pivot_points.pine" as pp
+import "../utils/calculations.pine" as calc
+
+// Function to detect Cup and Handle pattern
+pi.PatternInfo detectCupAndHandle() =>
+    var pi.PatternInfo ch = pi.PatternInfo.new(pt.PatternType.NONE, ds.DetectionStatus.NOT_DETECTED, na, na, na)
+    
+    // Define the lookback period for the cup
+    cupLookback = 30
+    
+    // Identify the bottom of the cup
+    cupBottom = ta.lowest(low, cupLookback)
+    cupBottomBar = ta.valuewhen(low == cupBottom, bar_index, 0)
+    
+    // Ensure there are enough bars after the cup
+    if (bar_index > cupBottomBar + 5)
+        // Identify the handle as a slight retracement after the cup
+        handleHigh = ta.highest(high, cupBottomBar + 1, bar_index)
+        handleLow = ta.lowest(low, cupBottomBar + 1, bar_index)
+        
+        // Define handle range criteria (e.g., retracement not more than 30%)
+        retracePercent = (handleHigh - cupBottom) / (ta.highest(high, cupLookback) - cupBottom) * 100
+        if (retracePercent <= 30)
+            // Check for breakout above the handle high
+            if (close > handleHigh)
+                ch := pi.PatternInfo.new(
+                    pt.PatternType.CUP_AND_HANDLE,
+                    ds.DetectionStatus.DETECTED,
+                    cupBottomBar,
+                    bar_index,
+                    handleHigh
+                )
+    
+    ch

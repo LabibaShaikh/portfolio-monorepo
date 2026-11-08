@@ -1,0 +1,5 @@
+//@version=5
+
+// Utility function to calculate percentage difference
+percentDifference(val1, val2) =>
+    math.abs((val1 - val2) / val1) * 100

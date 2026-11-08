@@ -1,0 +1,42 @@
+//@version=5
+import "../enums/pattern_types.pine" as pt
+import "../enums/detection_status.pine" as ds
+import "../types/pattern_info.pine" as pi
+import "../utils/pivot_points.pine" as pp
+import "../utils/calculations.pine" as calc
+
+// Function to detect Bearish Flag pattern
+pi.PatternInfo detectBearishFlag() =>
+    var pi.PatternInfo bf = pi.PatternInfo.new(pt.PatternType.NONE, ds.DetectionStatus.NOT_DETECTED, na, na, na)
+    
+    // Define the lookback period for the flagpole
+    flagpoleLookback = 20
+    
+    // Identify the flagpole (significant downward move)
+    flagpoleLow = ta.lowest(low, flagpoleLookback)
+    flagpoleBar = ta.valuewhen(low == flagpoleLow, bar_index, 0)
+    
+    if (bar_index > flagpoleBar + 5)  // Ensure there are enough bars after the flagpole
+        // Define consolidation period following the flagpole
+        consolidationStart = flagpoleBar + 1
+        consolidationEnd = bar_index
+        
+        // Define the consolidation range (flag)
+        consolidationHigh = ta.highest(high, consolidationStart, consolidationEnd)
+        consolidationLow = ta.lowest(low, consolidationStart, consolidationEnd)
+        
+        // Check for retracement within 30-50% of the flagpole
+        retracePercent = (ta.highest(high, flagpoleLookback) - flagpoleLow) / (ta.highest(high, flagpoleLookback) - flagpoleLow) * 100
+        retracePercent = (flagpoleLow - consolidationHigh) / (ta.highest(high, flagpoleLookback) - flagpoleLow) * 100
+        if (retracePercent >= 30 and retracePercent <= 50)
+            // Check for breakout below the consolidation low
+            if (close < consolidationLow)
+                bf := pi.PatternInfo.new(
+                    pt.PatternType.BEARISH_FLAG,
+                    ds.DetectionStatus.DETECTED,
+                    consolidationStart,
+                    consolidationEnd,
+                    consolidationLow
+                )
+    
+    bf

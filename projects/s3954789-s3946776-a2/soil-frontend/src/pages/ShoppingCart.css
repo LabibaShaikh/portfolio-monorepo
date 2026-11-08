@@ -1,0 +1,154 @@
+/* Styling for shopping cart page */
+@font-face {
+    font-family: "TT-Commons-Pro-Regular";
+    src: url("../../public/Fontspring-DEMO-tt_commons_pro_regular.otf");
+}
+
+@font-face {
+    font-family: "GlacialIndifference-Regular";
+    src: url("../../public/GlacialIndifference-Regular.otf");
+  }
+
+.cartWrapper {
+    margin-left: 35px;
+    margin-top: 100px;
+    overflow: hidden;
+}
+
+.Your-Cart-Header {
+    font-family: "TT-Commons-Pro-Regular";
+}
+
+.shoppingCartTable {
+    float: left;
+}
+
+.shoppingCartTable th {
+    font-family: "GlacialIndifference-Regular";
+    font-size: 25px;
+    width: 280px;
+    text-align: left;
+    padding: 20px;
+}
+
+#changeQtyBtn {
+    text-align: left
+}
+
+.shoppingCartTable tr {
+    height: 100px;
+}
+
+.shoppingCartTable td {
+    font-family: "GlacialIndifference-Regular";
+    font-size: 25px;
+    text-align: left;
+    padding: 20px;
+    vertical-align: middle;
+    border-bottom: 1px solid #B5B8B5;
+    border-top: 1px solid #B5B8B5;
+}
+
+#prodName {
+    max-width: 280px;
+    font-size: 25px;
+    font-weight: 300;
+    border-left: 1px solid #B5B8B5;
+}
+
+#prodName:hover {
+    text-decoration: underline;
+}
+
+.price-and-clear {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#priceData {
+    border-right: 1px solid #B5B8B5;
+}
+
+#remove-item-btn:hover {
+    filter: invert(66%) sepia(15%) saturate(457%) hue-rotate(345deg) brightness(91%) contrast(86%);
+    cursor: pointer;
+}
+
+.Order-Summary {
+    overflow: hidden;
+    width: 500px;
+    margin-top: 100px;
+    margin-left: 1350px;
+}
+
+.Order-Summary table {
+    width: 450px;
+    border-collapse: collapse;
+}
+
+.Order-Summary th {
+    font-family: "GlacialIndifference-Regular";
+    font-size: 25px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+#subtotal-row {
+    font-family: "GlacialIndifference-Regular";
+    font-size: 21px;
+    padding-bottom: 10px;
+}
+
+#total-row {
+    font-family: "GlacialIndifference-Regular";
+    font-size: 30px;
+    font-weight: bold;
+    border-bottom: 2px solid #979B97;
+}
+
+.rightAlign {
+    text-align: right;
+    font-weight: bold;
+}
+
+.checkout-Btn-Wrapper {
+    margin-top: 20px;
+}
+
+.checkout-Btn {
+    color: white;
+    background-color: black;
+    height: 60px;
+    width: 450px;
+    border-radius: 20px;
+    font-size: 25px;
+    font-family: "GlacialIndifference-Regular";
+}
+.checkout-Btn:hover {
+    background-color: rgba(0, 0, 0, 0.404);
+    cursor: pointer;
+}
+
+.continue-Shopping-Btn-Wrapper {
+    margin-top: 20px;
+}
+
+.continue-Shopping-Btn {
+    color: black;
+    background-color: #EAEFEA;
+    height: 60px;
+    width: 450px;
+    border-radius: 20px;
+    font-size: 21px;
+    font-family: "GlacialIndifference-Regular";
+}
+
+.continue-Shopping-Btn:hover {
+    background-color: #eaefeac1;
+    cursor: pointer;
+}
+
+
+

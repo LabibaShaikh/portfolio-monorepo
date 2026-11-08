@@ -1,0 +1,53 @@
+Main Menu: 
+   1. Display Meal Options
+   2. Purchase Meal
+   3. Save and Exit
+   4. Add Food
+   5. Remove Food
+   6. Display Balance
+   7. Abort Program
+[1;32mSelect your option:  (Type 'h' or 'help' for instructions): [0m[1;32mEnter Food Name:  (Type 'h' or 'help' for instructions): [0m[1;32mEnter Food Description:  (Type 'h' or 'help' for instructions): [0m[1;32mEnter Price: $ (Type 'h' or 'help' for instructions): [0m
+Item test-food has been added with ID F0008 and price $5.00 with Description: food created for testing purposes .
+
+Main Menu: 
+   1. Display Meal Options
+   2. Purchase Meal
+   3. Save and Exit
+   4. Add Food
+   5. Remove Food
+   6. Display Balance
+   7. Abort Program
+[1;32mSelect your option:  (Type 'h' or 'help' for instructions): [0m[1;31mInvalid choice, please select a valid option.[0m
+Main Menu: 
+   1. Display Meal Options
+   2. Purchase Meal
+   3. Save and Exit
+   4. Add Food
+   5. Remove Food
+   6. Display Balance
+   7. Abort Program
+[1;32mSelect your option:  (Type 'h' or 'help' for instructions): [0m[1;32mEnter Food ID to Remove:  (Type 'h' or 'help' for instructions): [0mItem with ID 5.10' not found.
+
+
+Main Menu: 
+   1. Display Meal Options
+   2. Purchase Meal
+   3. Save and Exit
+   4. Add Food
+   5. Remove Food
+   6. Display Balance
+   7. Abort Program
+[1;32mSelect your option:  (Type 'h' or 'help' for instructions): [0m[1;32mEnter Food ID to Remove:  (Type 'h' or 'help' for instructions): [0m
+Invalid input. Please enter a valid string.
+[1;31mEOF detected. Canceling...[0m
+
+Main Menu: 
+   1. Display Meal Options
+   2. Purchase Meal
+   3. Save and Exit
+   4. Add Food
+   5. Remove Food
+   6. Display Balance
+   7. Abort Program
+[1;32mSelect your option:  (Type 'h' or 'help' for instructions): [0m
+[1;33mQuitting program...[0m

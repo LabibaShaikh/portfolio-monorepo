@@ -1,0 +1,33 @@
+//@version=5
+import "../enums/pattern_types.pine" as pt
+import "../enums/detection_status.pine" as ds
+import "../types/pattern_info.pine" as pi
+import "../utils/pivot_points.pine" as pp
+import "../utils/calculations.pine" as calc
+
+// Function to detect Double Bottom pattern
+pi.PatternInfo detectDoubleBottom() =>
+    var pi.PatternInfo db = pi.PatternInfo.new(pt.PatternType.NONE, ds.DetectionStatus.NOT_DETECTED, na, na, na)
+    
+    // Define the lookback period
+    lookback = 50
+    
+    // Identify two pivot lows within the lookback period
+    pivotLow1 = pp.findPivotLow(5, 5)
+    pivotLow2 = pp.findPivotLow(5, 5)
+    
+    if (not na(pivotLow1) and not na(pivotLow2))
+        // Check if the two pivot lows are approximately equal within 0.5% tolerance
+        if (calc.percentDifference(low[pivotLow1], low[pivotLow2]) < 0.5)
+            // Find a pivot high between the two pivot lows
+            peak = pp.findPivotHigh(5, 5)
+            if (not na(peak) and peak > pivotLow1 and peak < pivotLow2)
+                db := pi.PatternInfo.new(
+                    pt.PatternType.DOUBLE_BOTTOM,
+                    ds.DetectionStatus.DETECTED,
+                    pivotLow1,
+                    pivotLow2,
+                    high[peak]
+                )
+    
+    db

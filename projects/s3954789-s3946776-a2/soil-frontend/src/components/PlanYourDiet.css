@@ -1,0 +1,67 @@
+/* //STYLING
+//Text Fonts*/
+
+@font-face {
+    font-family: "Advent-Pro-Light";
+    src: url("../../public/advent-pro.light.ttf");
+}
+
+@font-face {
+    font-family: "GlacialIndifference-Regular";
+    src: url("../../public/GlacialIndifference-Regular.otf");
+}
+
+.PlanYourDietWrapper {
+    position: relative;
+}
+
+/* Image positioned over the container */
+.MealPlan-Image img {
+    width: 1200px; 
+    height: 700px; 
+    object-fit: cover;
+    float: right;
+}
+
+.textWrapper {
+    position: absolute;
+    top: 0px;
+    left: 50px;
+    width: 700px;
+    align-items: center;
+}
+
+.HeaderWrapper h1 {
+    font-family: "Advent-Pro-Light";
+    font-size: 80px;
+    max-width: 500px;
+    margin-bottom: 0px;
+    margin-top: 110px;
+}
+
+.HeaderWrapper p {
+    font-family: "GlacialIndifference-Regular";
+    font-size: 25px;
+    max-width: 500px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.Plan-Btn {
+    font-family: "GlacialIndifference-Regular";
+    font-size: 25px;
+    color: black;
+    height: 90px;
+    width: 300px;
+    background-color: #EAEFEA;
+    border: 1px solid black;
+    border-radius: 30px;
+    position: absolute;
+    right: 550px;
+}
+
+.Plan-Btn:hover {
+    cursor: pointer;
+    background-color: #CDD1CD;
+}
+

@@ -1,0 +1,51 @@
+@font-face {
+    font-family: "Arapey-Italic";
+    src: url("../../public/Arapey-Italic.ttf");
+}
+
+@font-face {
+    font-family: "GlacialIndifference-Regular";
+    src: url("../../public/GlacialIndifference-Regular.otf");
+}
+
+@font-face {
+    font-family: "GlacialIndifference-Bold";
+    src: url("../../public/GlacialIndifference-Bold.otf");
+}
+
+.DIYToolkitWrapper h1 {
+    font-family: "Arapey-Italic";
+    font-size: 50px;
+}
+
+.DIYToolkitWrapper {
+    padding-left: 200px;
+}
+
+.DIYGardenTipWrapper {
+    position: relative;
+    padding: 20px;
+    min-height: 400px;
+}
+
+.DIYGardenTipWrapper p, ul {
+    font-family: "GlacialIndifference-Regular";
+    font-size: 23px;
+    max-width: 800px;
+}
+
+.DIYGardenTipWrapper h2 {
+    font-family: "GlacialIndifference-Bold";
+    font-size: 25px;
+}
+
+.tipImage {
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+    top: 10px;
+    right: 300px;
+}
+
+

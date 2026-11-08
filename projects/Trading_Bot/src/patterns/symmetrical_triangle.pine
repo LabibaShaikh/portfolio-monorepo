@@ -1,0 +1,41 @@
+//@version=5
+import "../enums/pattern_types.pine" as pt
+import "../enums/detection_status.pine" as ds
+import "../types/pattern_info.pine" as pi
+import "../utils/pivot_points.pine" as pp
+import "../utils/calculations.pine" as calc
+
+// Function to detect Symmetrical Triangle pattern
+pi.PatternInfo detectSymmetricalTriangle() =>
+    var pi.PatternInfo st = pi.PatternInfo.new(pt.PatternType.NONE, ds.DetectionStatus.NOT_DETECTED, na, na, na)
+    
+    // Define the lookback period
+    lookback = 30
+    
+    // Identify pivot highs and pivot lows
+    pivotHigh1 = pp.findPivotHigh(5, 5)
+    pivotHigh2 = pp.findPivotHigh(5, 5)
+    pivotLow1 = pp.findPivotLow(5, 5)
+    pivotLow2 = pp.findPivotLow(5, 5)
+    
+    // Ensure that pivot highs and lows are found
+    if (not na(pivotHigh1) and not na(pivotHigh2) and not na(pivotLow1) and not na(pivotLow2))
+        // Check if pivot highs are forming lower highs
+        if (high[pivotHigh2] < high[pivotHigh1])
+            // Check if pivot lows are forming higher lows
+            if (low[pivotLow2] > low[pivotLow1])
+                // Check for converging trendlines
+                slopeHigh = (high[pivotHigh2] - high[pivotHigh1]) / (pivotHigh2 - pivotHigh1)
+                slopeLow = (low[pivotLow2] - low[pivotLow1]) / (pivotLow2 - pivotLow1)
+                if (math.abs(slopeHigh - slopeLow) < 0.001)  // Threshold for convergence
+                    // Check for breakout
+                    if (close > ta.highest(high, pivotHigh1, pivotHigh2))
+                        st := pi.PatternInfo.new(
+                            pt.PatternType.SYMMETRICAL_TRIANGLE,
+                            ds.DetectionStatus.DETECTED,
+                            pivotHigh1,
+                            pivotHigh2,
+                            ta.highest(high, pivotHigh1, pivotHigh2)
+                        )
+    
+    st

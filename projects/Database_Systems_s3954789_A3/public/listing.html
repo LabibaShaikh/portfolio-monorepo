@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>🌍 Listing Details</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <button onclick="history.back()" class="btn-link">← Back</button>
+    <h1 id="name">Loading…</h1>
+    <p id="location" class="muted"></p>
+    <p><strong>Type:</strong> <span id="type"></span></p>
+    <p><strong>Bedrooms:</strong> <span id="bedrooms"></span></p>
+    <p><strong>Price:</strong> $<span id="price"></span></p>
+    <p><strong>Rating:</strong> <span id="rating"></span> ⭐</p>
+    <h3>Summary</h3>
+    <p id="summary"></p>
+    <h3>Description</h3>
+    <p id="description"></p>
+    <a id="bookNow" href="#" class="btn">Book Now →</a>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('listing_id');
+      if (!id) return document.body.innerHTML = '<p>Invalid listing ID.</p>';
+
+      const res = await fetch(`/listing?listing_id=${encodeURIComponent(id)}`);
+      if (!res.ok) return document.body.innerHTML = `<p>${await res.text()}</p>`;
+
+      const d = await res.json();
+      document.getElementById('name').textContent        = d.name;
+      document.getElementById('location').textContent    = d.location;
+      document.getElementById('type').textContent        = d.type;
+      document.getElementById('bedrooms').textContent   = d.bedrooms;
+      document.getElementById('price').textContent       = (typeof d.price === 'object' ? d.price.$numberDecimal : d.price);
+      document.getElementById('rating').textContent      = (d.rating / 20).toFixed(1);
+      document.getElementById('summary').textContent     = d.summary;
+      document.getElementById('description').textContent = d.description;
+      document.getElementById('bookNow').href = `booking.html?listing_id=${encodeURIComponent(id)}`;
+    });
+  </script>
+</body>
+</html>

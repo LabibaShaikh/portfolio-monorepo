@@ -1,0 +1,63 @@
+@font-face {
+    font-family: "Advent-Pro-Light";
+    src: url("../../public/advent-pro.light.ttf");
+}
+
+.shopNow {
+    text-align: center;
+}
+
+.shopNow h3 {
+    font-family: "Advent-Pro-Light";
+    font-size: 90px;
+    color: black;
+}
+
+.shopNow button {
+    font-family: "Advent-Pro-Light";
+    font-size: 30px;
+    width: 300px;
+    height: 100px;
+    background-color: transparent;
+    border: 3px solid black;
+}
+
+.shopNow button:hover {
+    cursor: pointer;
+    background-color: white;
+    opacity: 0.7;
+}
+
+/* prev and next button styling */
+.prev {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    top: 50%;
+    font-size: 70px;
+    border-radius: 50px;
+    text-align: center;
+    background-color: white;
+}
+
+.next {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    font-size: 70px;
+    border-radius: 50px;
+    text-align: center;
+    background-color: white;
+}
+
+.prev:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.next:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}

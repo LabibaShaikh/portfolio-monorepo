@@ -1,0 +1,139 @@
+/* ManageCustomers.css */
+
+body {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  background-color: #141415;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #393a3b;
+  color: #c22b2b;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 250px;
+}
+
+.header {
+  background-color: #0b0a0a;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(7, 7, 7, 0.1);
+}
+
+.content {
+  padding: 2rem;
+  background-color: #eaf0f5;
+  flex: 1;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #ffffff; /* Change this to white */
+
+}
+
+.table-container {
+  overflow-x: auto;
+  background-color: #f0e8e8;
+  box-shadow: 0 2px 4px rgba(57, 54, 54, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-header {
+  background-color: #fffdfd;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #1c1d1e;
+}
+
+.table th {
+  background-color: #f9f4f4;
+  border-bottom: 2px solid #eaecef;
+}
+
+.table tbody tr:hover {
+  background-color: #efe7e7;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #2a2a2a;
+}
+
+.form-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  color: #000000;
+}
+
+.form-container h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #555555;
+  border-radius: 4px;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.form-container input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+  color: white;
+}
+
+.btn-blocked {
+  background-color: #f44336; /* Red */
+}
+
+.btn-unblocked {
+  background-color: #38a169; /* Green */
+}
+
+.btn:hover {
+  opacity: 0.8;
+}

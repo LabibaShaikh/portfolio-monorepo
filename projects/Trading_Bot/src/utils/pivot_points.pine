@@ -1,0 +1,11 @@
+//@version=5
+import "../enums/pattern_types.pine" as pt
+import "../enums/detection_status.pine" as ds
+
+// Utility function to identify pivot highs
+findPivotHigh(left, right) =>
+    ta.pivothigh(high, left, right)
+
+// Utility function to identify pivot lows
+findPivotLow(left, right) =>
+    ta.pivotlow(low, left, right)

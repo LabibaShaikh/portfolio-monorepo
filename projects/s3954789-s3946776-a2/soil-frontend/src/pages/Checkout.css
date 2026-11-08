@@ -1,0 +1,113 @@
+/* Styling for checkout form 
+and order-summary */
+@font-face {
+    font-family: "GlacialIndifference-Regular";
+    src: url("../../public/GlacialIndifference-Regular.otf");
+}
+
+@font-face {
+    font-family: "TT-Commons-Pro-Regular";
+    src: url("../../public/Fontspring-DEMO-tt_commons_pro_regular.otf");
+}
+
+.CheckoutWrapper {
+    display: flex;
+    overflow: hidden;
+}
+
+.checkoutContainer {
+    float: left;
+}
+
+.checkoutFormWrapper {
+    align-items: center;
+    margin-left: 100px;
+}
+
+.checkoutFormWrapper h1 {
+    font-family: "GlacialIndifference-Regular";
+    font-size: 50px;
+}
+
+.checkoutFormWrapper h2 {
+    font-family: "TT-Commons-Pro-Regular";
+    font-size: 40px;
+}
+
+.checkoutFormWrapper input {
+    display: flex;
+    width: 500px;
+    font-family: "GlacialIndifference-Regular";
+    font-size: 20px;
+    margin-bottom: 10px;
+    height: 80px;
+    background: #fff7ad;
+    border-radius: 6px;
+}
+
+.checkoutFormWrapper .is-danger {
+    font-family: "GlacialIndifference-Regular";
+    font-size: 20px;
+    color: rgb(186, 37, 37);
+}
+
+.paymentContainer {
+    overflow: hidden;
+    padding-left: 50px;
+    padding-top: 90px;
+}
+
+.Order-Purchase-Summary {
+    float: right;
+    padding-right: 100px;
+    padding-top: 150px;
+    padding-left: 50px;
+}
+
+.Order-Purchase-Summary table {
+    width: 550px;
+    border-collapse: collapse;
+}
+
+.Order-Purchase-Summary th {
+    font-family: "GlacialIndifference-Regular";
+    font-size: 35px;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+
+.Order-Purchase-Summary tr {
+    font-family: "GlacialIndifference-Regular";
+    font-size: 23px;
+    height: 70px;
+}
+
+#total-row {
+    font-family: "GlacialIndifference-Regular";
+    font-size: 30px;
+    font-weight: bold;
+    border-top: 2px solid #979B97;
+    border-bottom: none;
+    height: 90px;
+}
+
+.rightAlign {
+    text-align: right;
+    font-weight: bold;
+}
+
+#continueToPayment {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.842);
+    height: 60px;
+    width: 500px;
+    border-radius: 20px;
+    font-size: 30px;
+    font-family: "GlacialIndifference-Regular";
+}
+
+#continueToPayment:hover {
+    background-color: rgba(0, 0, 0, 0.404);
+    cursor: pointer;
+}

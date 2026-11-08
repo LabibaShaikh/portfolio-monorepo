@@ -1,0 +1,44 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  header img {
+    height: 80px;
+    margin-left: 40px;
+    background-color: rgba(198, 35, 224, 0.861);  /* Apply only to img within header */
+}
+
+  img {
+    height: 80px;
+    margin-left: 40px;
+    
+}
+
+
+
+header {
+    background-color: rgba(203, 30, 230, 0.861);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 20px 0 rgb(250, 253, 251);
+}
+
+header * {
+    display: inline;
+}
+
+header li {
+    margin: 20px;
+}
+
+header li a {
+    color: rgb(255, 251, 251);
+    text-decoration: none;
+}

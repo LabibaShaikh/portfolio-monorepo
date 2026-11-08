@@ -1,0 +1,17 @@
+//@version=5
+type PatternInfo
+    pattern: PatternType
+    status: DetectionStatus
+    startBar: int
+    endBar: int
+    confirmationLevel: float
+
+// Function to initialize a new PatternInfo
+PatternInfo.new = (ptype, dstatus, sBar, eBar, confLevel) =>
+    PatternInfo(
+        pattern = ptype,
+        status = dstatus,
+        startBar = sBar,
+        endBar = eBar,
+        confirmationLevel = confLevel
+    )

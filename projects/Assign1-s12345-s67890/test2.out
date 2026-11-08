@@ -1,0 +1,14 @@
+Found 'facial' with frequency 182033
+Delete 'facial' succeeded
+NOT Found 'facial'
+NOT Found 'booming'
+Add 'booming' succeeded
+Found 'booming' with frequency 123456
+Autocomplete for 'boo': [ bie: 0  by: 0  tleg: 0  ]
+Delete 'boom' succeeded
+Autocomplete for 'boo': [ bie: 0  by: 0  tleg: 0  ]
+Found 'aluminum' with frequency 329946
+Autocomplete for 'alum': [ inum: 0  na: 0  ]
+Delete 'alumna' succeeded
+Autocomplete for 'alum': [ inum: 0  ]
+Autocomplete for 'alrighty': [ ]

@@ -1,0 +1,9 @@
+//@version=5
+
+// Example helper function: Check if current close is above a certain level
+isCloseAbove(level) =>
+    close > level
+
+// Example helper function: Check if current close is below a certain level
+isCloseBelow(level) =>
+    close < level

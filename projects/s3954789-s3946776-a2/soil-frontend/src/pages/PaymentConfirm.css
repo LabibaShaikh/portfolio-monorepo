@@ -1,0 +1,60 @@
+/* Styling for Payment Confirmation page */
+@font-face {
+    font-family: "GlacialIndifference-Regular";
+    src: url("../../public/GlacialIndifference-Regular.otf");
+}
+
+@font-face {
+    font-family: "TT-Commons-Pro-Regular";
+    src: url("../../public/Fontspring-DEMO-tt_commons_pro_regular.otf");
+}
+
+@font-face {
+    font-family: "Advent-Pro-Light";
+    src: url("../../public/advent-pro.light.ttf");
+}
+
+.Receipt-Wrapper {
+    padding-left: 100px;
+}
+
+.Receipt-Wrapper h1 {
+    font-family: "GlacialIndifference-Regular";
+    font-size: 40px;
+}
+
+.Receipt-Wrapper h2 {
+    font-family: "TT-Commons-Pro-Regular";
+    font-size: 30px;
+}
+
+.Order-Summary-Table tr {
+    font-family: "GlacialIndifference-Regular";
+    font-size: 25px;
+    width: 280px;
+    text-align: left;
+    padding: 20px;
+    height: 100px;
+}
+
+.Order-Summary-Table th {
+    font-family: "GlacialIndifference-Regular";
+    font-size: 25px;
+    width: 400px;
+}
+
+.Order-Summary-Table td {
+    font-family: "Advent-Pro-Light";
+    font-size: 25px;
+    max-width: 1000px;
+    text-align: center;
+    padding: 20px;
+    vertical-align: middle;
+    border-top: 1px solid #B5B8B5;
+}
+
+#Total-Row {
+    vertical-align: bottom;
+    font-weight: 1000;
+    font-size: 30px;
+}

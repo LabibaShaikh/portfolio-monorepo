@@ -1,0 +1,26 @@
+runtimes
+
+
+Array
+test 1: 0.13s
+test 2: 0.18s
+test 3: 0.41s
+test 4: 0.60s
+test 5: 0.75s
+test 6: 0.83s
+
+Linked List
+test 1: 0.41s
+test 2: 0.47s
+test 3: 2.00s
+test 4: 13.6s
+test 5: 1m 26.77s
+test 6: 6m 2.64s
+
+Trie
+test 1: 0.37s
+test 2: 0.35s
+test 3: 0.48s
+test 4: 0.66s
+test 5: 0.71s
+test 6: 1.78s

@@ -1,0 +1,38 @@
+:root {
+  --electric-blue: #3B4CCA;
+  --fire-red: #FF1B1C;
+  --grass-green: #62B957;
+  --sun-yellow: #FFDE00;
+  --cloud-white: #F0F0F0;
+  --slate-gray: #414959;
+}
+
+body {
+  background-color: var(--cloud-white);
+  color: var(--slate-gray);
+}
+
+.header, .footer {
+  background-color: var(--electric-blue);
+  color: var(--cloud-white);
+}
+
+.button-primary {
+  background-color: var(--fire-red);
+  color: var(--cloud-white);
+}
+
+.button-secondary {
+  background-color: var(--grass-green);
+  color: var(--cloud-white);
+}
+
+.highlight {
+  background-color: var(--sun-yellow);
+  color: var(--slate-gray);
+}
+
+.card {
+  background-color: var(--cloud-white);
+  border-left: 5px solid var(--electric-blue);
+}

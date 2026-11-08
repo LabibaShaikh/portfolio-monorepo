@@ -1,0 +1,103 @@
+@font-face {
+    font-family: "GlacialIndifference-Regular";
+    src: url("../../public/GlacialIndifference-Regular.otf");
+}
+
+@font-face {
+    font-family: "TT-Commons-Pro-Regular";
+    src: url("../../public/Fontspring-DEMO-tt_commons_pro_regular.otf");
+}
+
+.ReviewModal-Wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 1000px;
+    max-height: 80vh; /* This makes the modal content area have a maximum height of 80% of the viewport height */
+    overflow-y: auto;
+    transform: translate(-50%, -50%);
+    background-color: rgba(241, 227, 227, 0.979);
+}
+
+.ReviewModal-Wrapper h1 {
+    margin-left: 40px;
+    font-family: "GlacialIndifference-Regular";
+}
+
+.StarRating {
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+.ReviewModal-Wrapper .input {
+    width: 750px;
+    height: 50px;
+    margin-left: 40px;
+    padding-left: 10px;
+    font-family: "TT-Commons-Pro-Regular";
+    font-size: 15px;
+}
+
+.submitReview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 75px;
+    color: #fff;
+    background: #ffa9f9;
+    text-align: center;
+    margin-left: 40px;
+    font-family: "TT-Commons-Pro-Regular";
+    font-size: 18px;
+}
+
+.submitReview:hover {
+    cursor: pointer;
+}
+
+.ProdReviews p {
+    font-size: 20px;
+}
+
+.Review {
+    margin-left: 40px;
+}
+
+.NoReviews {
+    margin-left: 40px;
+}
+
+.ProdReviews button {
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 75px;
+    color: #fff;
+    margin-right: 10px;
+    background: rgb(177, 177, 177);
+    text-align: center;
+    font-family: "TT-Commons-Pro-Regular";
+    font-size: 15px;
+}
+
+.help-is-danger {
+    color: red;
+    margin-left: 40px;
+    font-family: "TT-Commons-Pro-Regular";
+    font-size: 15px;
+}
+
+.Close-Button {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+.Close-Button:hover {
+    cursor: pointer;
+    color: grey;
+}

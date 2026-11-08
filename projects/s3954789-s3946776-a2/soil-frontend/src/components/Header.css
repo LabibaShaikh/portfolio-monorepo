@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "TT-Commons-Pro-Expanded";
+    src: url("../../public/Fontspring-DEMO-tt_commons_pro_expanded_regular.otf");
+}
+
+.HeaderWrapper {
+    position: relative;
+    width: 1850px;
+    height: 150px;
+    top: 40px;
+    left: 25px;
+}
+
+.Header-Logo {
+    font-family: "TT-Commons-Pro-Expanded";
+    font-size: 70px;
+}

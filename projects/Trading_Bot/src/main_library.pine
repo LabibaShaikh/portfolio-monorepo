@@ -1,0 +1,160 @@
+//@version=5
+library("TradingPatternsLib", overlay=true)
+
+// Import Enums
+import "./enums/pattern_types.pine" as pt
+import "./enums/detection_status.pine" as ds
+
+// Import Types
+import "./types/pattern_info.pine" as pi
+
+// Import Utility Functions
+import "./utils/pivot_points.pine" as pp
+import "./utils/calculations.pine" as calc
+import "./utils/helpers.pine" as helpers
+
+// Import Pattern Detection Functions
+import "./patterns/double_top.pine" as dt
+import "./patterns/bullish_flag.pine" as bf
+import "./patterns/bearish_flag.pine" as bbf
+import "./patterns/bullish_pennant.pine" as bp
+import "./patterns/bearish_pennant.pine" as bpp
+import "./patterns/symmetrical_triangle.pine" as st
+import "./patterns/ascending_triangle.pine" as at
+import "./patterns/descending_triangle.pine" as dtg
+import "./patterns/double_bottom.pine" as db
+import "./patterns/bullish_channel.pine" as bc
+import "./patterns/bearish_channel.pine" as bbc
+import "./patterns/head_and_shoulders.pine" as hs
+import "./patterns/cup_and_handle.pine" as ch
+import "./patterns/bullish_abcd.pine" as babcd
+import "./patterns/bearish_abcd.pine" as babd
+import "./patterns/pin_bar.pine" as pb
+import "./patterns/inverted_pin_bar.pine" as ipb
+import "./patterns/wick.pine" as wk
+
+// Import Multi-Timeframe Functions
+import "./multi_timeframe.pine" as mtf
+
+// Main function to detect all patterns
+detectAllPatterns() =>
+    patterns = array.new<pi.PatternInfo>()
+    
+    // Detect patterns on the 30-minute chart
+    dt_pattern = dt.detectDoubleTop()
+    if (dt_pattern.pattern != pt.PatternType.NONE)
+        array.push(patterns, dt_pattern)
+    
+    bf_pattern = bf.detectBullishFlag()
+    if (bf_pattern.pattern != pt.PatternType.NONE)
+        array.push(patterns, bf_pattern)
+    
+    bbf_pattern = bbf.detectBearishFlag()
+    if (bbf_pattern.pattern != pt.PatternType.NONE)
+        array.push(patterns, bbf_pattern)
+    
+    bp_pattern = bp.detectBullishPennant()
+    if (bp_pattern.pattern != pt.PatternType.NONE)
+        array.push(patterns, bp_pattern)
+    
+    bpp_pattern = bpp.detectBearishPennant()
+    if (bpp_pattern.pattern != pt.PatternType.NONE)
+        array.push(patterns, bpp_pattern)
+    
+    st_pattern = st.detectSymmetricalTriangle()
+    if (st_pattern.pattern != pt.PatternType.NONE)
+        array.push(patterns, st_pattern)
+    
+    at_pattern = at.detectAscendingTriangle()
+    if (at_pattern.pattern != pt.PatternType.NONE)
+        array.push(patterns, at_pattern)
+    
+    dtg_pattern = dtg.detectDescendingTriangle()
+    if (dtg_pattern.pattern != pt.PatternType.NONE)
+        array.push(patterns, dtg_pattern)
+    
+    db_pattern = db.detectDoubleBottom()
+    if (db_pattern.pattern != pt.PatternType.NONE)
+        array.push(patterns, db_pattern)
+    
+    bc_pattern = bc.detectBullishChannel()
+    if (bc_pattern.pattern != pt.PatternType.NONE)
+        array.push(patterns, bc_pattern)
+    
+    bbc_pattern = bbc.detectBearishChannel()
+    if (bbc_pattern.pattern != pt.PatternType.NONE)
+        array.push(patterns, bbc_pattern)
+    
+    hs_pattern = hs.detectHeadAndShoulders()
+    if (hs_pattern.pattern != pt.PatternType.NONE)
+        array.push(patterns, hs_pattern)
+    
+    ch_pattern = ch.detectCupAndHandle()
+    if (ch_pattern.pattern != pt.PatternType.NONE)
+        array.push(patterns, ch_pattern)
+    
+    babcd_pattern = babcd.detectBullishABCD()
+    if (babcd_pattern.pattern != pt.PatternType.NONE)
+        array.push(patterns, babcd_pattern)
+    
+    babd_pattern = babd.detectBearishABCD()
+    if (babd_pattern.pattern != pt.PatternType.NONE)
+        array.push(patterns, babd_pattern)
+    
+    pb_pattern = pb.detectPinBar()
+    if (pb_pattern.pattern != pt.PatternType.NONE)
+        array.push(patterns, pb_pattern)
+    
+    ipb_pattern = ipb.detectInvertedPinBar()
+    if (ipb_pattern.pattern != pt.PatternType.NONE)
+        array.push(patterns, ipb_pattern)
+    
+    wk_pattern = wk.detectWick()
+    if (wk_pattern.pattern != pt.PatternType.NONE)
+        array.push(patterns, wk_pattern)
+    
+    // Incorporate higher timeframe confirmation
+    [ht2h_open, ht2h_high, ht2h_low, ht2h_close] = mtf.getHigherTimeframeData("120")
+    [htd_open, htd_high, htd_low, htd_close] = mtf.getHigherTimeframeData("D")
+    
+    // Example confirmation: Ensure the pattern aligns with higher timeframe trend
+    for i = 0 to array.size(patterns) - 1
+        pattern = array.get(patterns, i)
+        if (pattern.status == ds.DetectionStatus.DETECTED)
+            switch pattern.pattern
+                pt.PatternType.DOUBLE_TOP =>
+                    // Example confirmation: Price on higher timeframe is in a downtrend
+                    if (htd_close < htd_open)
+                        pattern := pi.PatternInfo.new(
+                            pattern.pattern,
+                            ds.DetectionStatus.CONFIRMED,
+                            pattern.startBar,
+                            pattern.endBar,
+                            pattern.confirmationLevel
+                        )
+                        array.set(patterns, i, pattern)
+                pt.PatternType.BULLISH_FLAG =>
+                    // Example confirmation: Higher timeframe trend is bullish
+                    if (htd_close > htd_open)
+                        pattern := pi.PatternInfo.new(
+                            pattern.pattern,
+                            ds.DetectionStatus.CONFIRMED,
+                            pattern.startBar,
+                            pattern.endBar,
+                            pattern.confirmationLevel
+                        )
+                        array.set(patterns, i, pattern)
+                pt.PatternType.BEARISH_HEAD_AND_SHOULDERS =>
+                    // Example confirmation: Higher timeframe trend is bearish
+                    if (htd_close < htd_open)
+                        pattern := pi.PatternInfo.new(
+                            pattern.pattern,
+                            ds.DetectionStatus.CONFIRMED,
+                            pattern.startBar,
+                            pattern.endBar,
+                            pattern.confirmationLevel
+                        )
+                        array.set(patterns, i, pattern)
+                // Add confirmations for other patterns as needed
+    
+    patterns

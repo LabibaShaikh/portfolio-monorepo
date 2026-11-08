@@ -1,0 +1,30 @@
+@font-face {
+    font-family: "TT-Commons-Pro-Expanded";
+    src: url("../../public/Fontspring-DEMO-tt_commons_pro_expanded_regular.otf");
+}
+
+.Footer-container {
+    background: transparent;
+    font-family: "TT-Commons-Pro-Expanded";
+    font-size: 15px;
+    text-align: left;
+    position: relative;
+    background-color: transparent;
+}
+
+/* Social Icons */
+#X {
+    position: absolute;
+    float: right;
+    padding: 5px;
+    top: 0;
+    right: 30px;
+}
+
+#Instagram {
+    position: absolute;
+    float: right;
+    padding: 5px;
+    top: 0;
+    right: 80px;
+}

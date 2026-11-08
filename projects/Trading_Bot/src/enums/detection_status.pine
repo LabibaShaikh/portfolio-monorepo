@@ -1,0 +1,5 @@
+//@version=5
+enum DetectionStatus
+    NOT_DETECTED
+    DETECTED
+    CONFIRMED

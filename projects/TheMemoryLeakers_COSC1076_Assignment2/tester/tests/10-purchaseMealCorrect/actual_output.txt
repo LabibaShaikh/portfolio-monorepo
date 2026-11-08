@@ -1,0 +1,32 @@
+Main Menu: 
+   1. Display Meal Options
+   2. Purchase Meal
+   3. Save and Exit
+   4. Add Food
+   5. Remove Food
+   6. Display Balance
+   7. Abort Program
+[1;32mSelect your option:  (Type 'h' or 'help' for instructions): [0m[1;32mEnter Food ID to purchase:  (Type 'h' or 'help' for instructions): [0mItem with ID F001 not found.
+
+[1;32mEnter Food ID to purchase:  (Type 'h' or 'help' for instructions): [0mYou are purchasing: Baklava - Rich middle eastern cake of thin layers of flaky pastry filled with nuts and honey
+Total cost is: [32m$8.50[0m
+You still owe [31m$8.50[0m: [1;32mPlease enter the denomination and count of the coin you want to give:  (Type 'h' or 'help' for instructions): [0mYou still owe [31m$8.40[0m: [1;32mPlease enter the denomination and count of the coin you want to give:  (Type 'h' or 'help' for instructions): [0mInvalid coin denomination!
+You still owe [31m$8.40[0m: [1;32mPlease enter the denomination and count of the coin you want to give:  (Type 'h' or 'help' for instructions): [0mInvalid coin denomination!
+You still owe [31m$8.40[0m: [1;32mPlease enter the denomination and count of the coin you want to give:  (Type 'h' or 'help' for instructions): [0mYou still owe [31m$3.40[0m: [1;32mPlease enter the denomination and count of the coin you want to give:  (Type 'h' or 'help' for instructions): [0mYou still owe [31m$1.40[0m: [1;32mPlease enter the denomination and count of the coin you want to give:  (Type 'h' or 'help' for instructions): [0mYou still owe [31m$0.40[0m: [1;32mPlease enter the denomination and count of the coin you want to give:  (Type 'h' or 'help' for instructions): [0mInvalid coin denomination!
+You still owe [31m$0.40[0m: [1;32mPlease enter the denomination and count of the coin you want to give:  (Type 'h' or 'help' for instructions): [0mInvalid coin denomination!
+You still owe [31m$0.40[0m: [1;32mPlease enter the denomination and count of the coin you want to give:  (Type 'h' or 'help' for instructions): [0mInvalid input. Please enter a valid int.
+[1;32mPlease enter the denomination and count of the coin you want to give:  (Type 'h' or 'help' for instructions): [0mYou still owe [31m$0.40[0m: [1;32mPlease enter the denomination and count of the coin you want to give:  (Type 'h' or 'help' for instructions): [0mProcessing Payment...
+Change Given: 50c 10c 
+Payment successful!
+
+
+Main Menu: 
+   1. Display Meal Options
+   2. Purchase Meal
+   3. Save and Exit
+   4. Add Food
+   5. Remove Food
+   6. Display Balance
+   7. Abort Program
+[1;32mSelect your option:  (Type 'h' or 'help' for instructions): [0m
+[1;33mQuitting program...[0m

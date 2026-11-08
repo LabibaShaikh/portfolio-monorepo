@@ -1,0 +1,122 @@
+{
+  "actions": [
+    {
+      "id": "ACT_QUAR_H",
+      "label": "Quarantine Sector H",
+      "cost": { "power": 4, "trust": 0 },
+      "effects": { "infection": -8, "integrity": -1, "trust": 1 },
+      "prereqs": { "minPower": 10 }
+    },
+    {
+      "id": "ACT_RAISE_FILTRATION",
+      "label": "Raise Filtration to Max",
+      "cost": { "power": 6, "trust": 0 },
+      "effects": { "infection": -6, "integrity": -1 },
+      "prereqs": { "minPower": 15 }
+    },
+    {
+      "id": "ACT_SEQUENCE_PUSH",
+      "label": "Prioritize Sequencing Queue",
+      "cost": { "power": 3, "trust": 0 },
+      "effects": { "mutation": -4, "countermeasure": 12, "trust": 1 },
+      "prereqs": { "minPower": 8 }
+    },
+    {
+      "id": "ACT_ALLOCATE_COMPUTE",
+      "label": "Allocate Compute to Apollo",
+      "cost": { "power": 5, "trust": -1 },
+      "effects": { "countermeasure": 18, "mutation": -2 },
+      "prereqs": { "minPower": 12 }
+    },
+    {
+      "id": "ACT_PATCH_SENSORS",
+      "label": "Patch & Recalibrate Sensors",
+      "cost": { "power": 2, "trust": 0 },
+      "effects": { "trust": 4, "integrity": 1 },
+      "prereqs": { "minPower": 5 }
+    },
+    {
+      "id": "ACT_ISOLATE_NETWORK",
+      "label": "Isolate Station Network",
+      "cost": { "power": 2, "trust": 0 },
+      "effects": { "trust": 2, "integrity": 2, "power": -1 },
+      "prereqs": { "minPower": 5 }
+    },
+    {
+      "id": "ACT_EMERGENCY_DECON",
+      "label": "Emergency Decon Cycle",
+      "cost": { "power": 7, "trust": 0 },
+      "effects": { "infection": -10, "integrity": -2 },
+      "prereqs": { "minPower": 18 }
+    },
+    {
+      "id": "ACT_TARGETED_TESTING",
+      "label": "Targeted PCR Testing",
+      "cost": { "power": 2, "trust": 0 },
+      "effects": { "trust": 2, "mutation": -1, "countermeasure": 6 },
+      "prereqs": { "minPower": 5 }
+    },
+    {
+      "id": "ACT_SHIFT_ROTATION",
+      "label": "Enforce Shift Rotation",
+      "cost": { "power": 0, "trust": 1 },
+      "effects": { "trust": 5, "integrity": 1, "infection": -2 },
+      "prereqs": { "minTrust": 20 }
+    },
+    {
+      "id": "ACT_LOCKDOWN_DOORS",
+      "label": "Hard Lockdown Doors",
+      "cost": { "power": 3, "trust": 2 },
+      "effects": { "infection": -5, "integrity": 2, "trust": -1 },
+      "prereqs": { "minPower": 8 }
+    },
+    {
+      "id": "ACT_VENT_OVERRIDE",
+      "label": "Override Ventilation Routing",
+      "cost": { "power": 4, "trust": 0 },
+      "effects": { "infection": -4, "integrity": 1 },
+      "prereqs": { "minPower": 10 }
+    },
+    {
+      "id": "ACT_RATION_POWER",
+      "label": "Ration Power to Core Systems",
+      "cost": { "power": 0, "trust": 2 },
+      "effects": { "power": 6, "trust": -1, "integrity": 1 },
+      "prereqs": { "minTrust": 10 }
+    },
+    {
+      "id": "ACT_COUNTERMEASURE_SPRINT",
+      "label": "Countermeasure Sprint",
+      "cost": { "power": 6, "trust": 0 },
+      "effects": { "countermeasure": 22, "mutation": 2, "trust": -1 },
+      "prereqs": { "minPower": 14 }
+    },
+    {
+      "id": "ACT_PUBLIC_BRIEFING",
+      "label": "Crew Briefing + Protocol Reset",
+      "cost": { "power": 1, "trust": 0 },
+      "effects": { "trust": 6, "infection": -1 },
+      "prereqs": { "minPower": 3 }
+    }
+  ],
+  "ordeals": [
+    {
+      "id": "ORD_VENT_CASCADE",
+      "title": "Ventilation Cascade",
+      "narrative": "Multiple air handlers desync. The station coughs contaminated air through sealed seams.",
+      "effects": { "infection": 8, "power": -4, "integrity": -3, "trust": -2 },
+      "minTurn": 3,
+      "maxTurn": 10,
+      "chance": 0.20
+    },
+    {
+      "id": "ORD_APOLLO_GLITCH",
+      "title": "Apollo Glitch Event",
+      "narrative": "Apollo outputs conflicting recommendations. Crew doubts the advisor subsystem.",
+      "effects": { "trust": -6, "mutation": 2, "power": -1 },
+      "minTurn": 2,
+      "maxTurn": 12,
+      "chance": 0.15
+    }
+  ]
+}

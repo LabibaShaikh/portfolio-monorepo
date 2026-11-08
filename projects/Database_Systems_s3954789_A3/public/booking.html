@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>📅 Book Your Stay</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <h1>📅 Book Your Stay</h1>
+
+  <form id="bookingForm">
+    <input type="hidden" id="listingId" name="listing_id"/>
+
+    <label>Start Date:
+      <input type="date" id="startDate" name="start_date" required>
+    </label>
+    <label>End Date:
+      <input type="date" id="endDate" name="end_date" required>
+    </label>
+
+    <h3>Your Details</h3>
+    <label>Name:
+      <input type="text" name="client_name" required>
+    </label>
+    <label>Email:
+      <input type="email" name="email" required>
+    </label>
+    <label>Day Phone:
+      <input type="tel" name="day_phone">
+    </label>
+    <label>Mobile:
+      <input type="tel" name="mobile">
+    </label>
+    <label>Postal Address:
+      <input type="text" name="postal_address">
+    </label>
+    <label>Home Address:
+      <input type="text" name="home_address">
+    </label>
+
+    <button type="submit">Confirm Booking</button>
+  </form>
+
+  <!-- Return to homepage button -->
+  <p style="margin-top:1rem;">
+    <a href="index.html">
+      <button type="button">🏠 Return to Homepage</button>
+    </a>
+  </p>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1) Prefill listing_id from URL
+      const params    = new URLSearchParams(window.location.search);
+      const listingId = params.get('listing_id');
+      document.getElementById('listingId').value = listingId;
+
+      // 2) Disable past dates and enforce end ≥ start
+      const today = new Date().toISOString().split('T')[0];
+      const sd    = document.getElementById('startDate');
+      const ed    = document.getElementById('endDate');
+
+      sd.min = today;
+      ed.min = today;
+
+      sd.addEventListener('change', () => {
+        ed.min = sd.value;
+        // Only adjust end if it was already set AND is now before the new start
+        if (ed.value && ed.value < sd.value) {
+          ed.value = sd.value;
+        }
+      });
+    });
+
+    // 3) Submit form and redirect on success
+    document.getElementById('bookingForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target).entries());
+      const res  = await fetch('/book', {
+        method: 'POST',
+        headers: { 'Content-Type':'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        window.location.href = 'bookings.html?success=1';
+      } else {
+        const msg = await res.text();
+        alert('❌ Booking failed: ' + msg);
+      }
+    });
+  </script>
+</body>
+</html>

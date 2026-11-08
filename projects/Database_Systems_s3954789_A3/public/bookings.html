@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>📖 Your Bookings</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div id="confirmation"></div>
+
+  <!-- Return button -->
+  <p style="margin:1rem 0;">
+    <a href="index.html">
+      <button type="button">🏠 Return to Homepage</button>
+    </a>
+  </p>
+
+  <h2>📖 Your Bookings</h2>
+
+  <!-- Filter control -->
+  <label for="filterBookings" class="filter-label">
+    Show:
+    <select id="filterBookings">
+      <option value="all">All</option>
+      <option value="current">Current</option>
+      <option value="past">Past</option>
+    </select>
+  </label>
+
+  <!-- Refresh button -->
+  <button id="refreshBookings" class="btn-link">🔄 Refresh Bookings</button>  
+
+  <div class="bookings-container">
+    <div class="bookings-section">
+      <h3>Current Bookings</h3>
+      <div id="current-bookings"></div>
+    </div>
+    <div class="bookings-section">
+      <h3>Past Bookings</h3>
+      <div id="past-bookings"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1) Show success banner if redirected after booking
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('success') === '1') {
+        document.getElementById('confirmation').innerHTML =
+          '<p>✅ Booking successful! Thank you.</p>';
+      }
+
+      // 2) Initial load of bookings
+      loadBookings();
+
+      // 3) Wire up filter control
+      const filter      = document.getElementById('filterBookings');
+      const sections    = document.querySelectorAll('.bookings-container .bookings-section');
+      const [curSec, pastSec] = sections;
+      filter.addEventListener('change', () => {
+        const v = filter.value;
+        curSec.style.display  = (v === 'past') ? 'none' : 'block';
+        pastSec.style.display = (v === 'current') ? 'none' : 'block';
+      });
+
+      // 4) Wire up refresh button
+      document.getElementById('refreshBookings')
+        .addEventListener('click', () => loadBookings());
+    });
+  </script>
+</body>
+</html>

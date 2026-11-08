@@ -1,0 +1,7 @@
+//@version=5
+import "../utils/helpers.pine" as helpers
+
+// Function to get higher timeframe data
+getHigherTimeframeData(tf) =>
+    [ht_open, ht_high, ht_low, ht_close] = request.security(syminfo.tickerid, tf, [open, high, low, close])
+    [ht_open, ht_high, ht_low, ht_close]

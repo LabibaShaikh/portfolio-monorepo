@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Airbnb Listings</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <h1>✨ Find Your Dream Stay ✨</h1>
+  <form id="searchForm">
+    <label>Location:
+      <input type="text" id="location" name="location" required>
+    </label>
+    <label>Type:
+      <select id="type" name="type">
+        <option value="">Any</option>
+        <option>Apartment</option>
+        <option>House</option>
+        <option>Condominium</option>
+      </select>
+    </label>
+    <label>Bedrooms:
+      <select id="bedrooms" name="bedrooms">
+        <option value="">Any</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3+</option>
+      </select>
+    </label>
+    <label>Price Range:
+      <select id="priceRange" name="priceRange">
+        <option value="">Any</option>
+        <option value="0-100">$0–100</option>
+        <option value="100-200">$100–200</option>
+        <option value="200-300">$200–300</option>
+        <option value="300+">≥300</option>
+      </select>
+    </label>
+    <label>Min Rating:
+      <select id="minRating" name="minRating">
+        <option value="">Any</option>
+        <option value="3.0">3.0+</option>
+        <option value="3.5">3.5+</option>
+        <option value="4.0">4.0+</option>
+        <option value="4.5">4.5+</option>
+      </select>
+    </label>
+    <button type="submit">Search</button>
+  </form>
+
+  <div id="results"></div>
+  <!-- added pagination container -->
+  <div id="pagination" style="margin:1rem 0;"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# Pine Script Library Build
+/build/
+
+# VSCode specific files
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

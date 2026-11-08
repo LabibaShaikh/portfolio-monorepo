@@ -1,0 +1,204 @@
+/* public/styles.css */
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    padding: 2rem;
+    background: #fef6f9;
+  }
+  
+  form {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid #ddd;
+  }
+  
+  label {
+    display: block;
+    margin-top: 0.5rem;
+  }
+  
+  button {
+    margin-top: 1rem;
+  }
+  
+  .listing {
+    background: #fff;
+    border: 1px solid #ccc;
+    margin: 1rem 0;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+  }
+  
+  .listing:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .listing h3 {
+    margin: 0 0 1rem 0;
+    color: #333;
+  }
+  
+  .listing h3 a {
+    color: #2c5282;
+    text-decoration: none;
+  }
+  
+  .listing h3 a:hover {
+    color: #2b6cb0;
+    text-decoration: underline;
+  }
+  
+  .listing-details {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .listing-summary {
+    color: #4a5568;
+    line-height: 1.5;
+  }
+  
+  .listing-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+  }
+  
+  .listing-meta p {
+    margin: 0;
+    color: #4a5568;
+  }
+  
+  .listing-meta strong {
+    color: #2d3748;
+    margin-right: 0.5rem;
+  }
+  
+  .error-message {
+    background: #fff5f5;
+    border: 1px solid #feb2b2;
+    color: #c53030;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin: 1rem 0;
+  }
+  
+  .booking-card {
+    border: 1px solid #ddd;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    background-color: #fff8fc;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+  }
+  
+  .booking-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .booking-header h4 {
+    margin: 0;
+    color: #333;
+    font-size: 1.2rem;
+  }
+  
+  .booking-dates {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .booking-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  
+  .property-info, .contact-info {
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .property-info h5, .contact-info h5 {
+    margin: 0 0 0.8rem 0;
+    color: #2d3748;
+    font-size: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+  }
+  
+  .booking-details p {
+    margin: 0.5rem 0;
+    color: #4a5568;
+  }
+  
+  .booking-details strong {
+    color: #2d3748;
+    margin-right: 0.5rem;
+  }
+  
+  .bookings-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .bookings-section {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .bookings-section h3 {
+    color: #333;
+    margin-top: 0;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+  }
+  
+  .no-bookings {
+    color: #666;
+    font-style: italic;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .no-properties-message {
+    background: #fff5f5;
+    border: 1px solid #feb2b2;
+    color: #c53030;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 1.1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .bookings-container {
+      grid-template-columns: 1fr;
+    }
+    .booking-details {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+  

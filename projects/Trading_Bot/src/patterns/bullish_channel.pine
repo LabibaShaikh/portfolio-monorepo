@@ -1,0 +1,53 @@
+//@version=5
+import "../enums/pattern_types.pine" as pt
+import "../enums/detection_status.pine" as ds
+import "../types/pattern_info.pine" as pi
+import "../utils/pivot_points.pine" as pp
+import "../utils/calculations.pine" as calc
+
+// Function to detect Bullish Channel pattern
+pi.PatternInfo detectBullishChannel() =>
+    var pi.PatternInfo bc = pi.PatternInfo.new(pt.PatternType.NONE, ds.DetectionStatus.NOT_DETECTED, na, na, na)
+    
+    // Define the lookback period
+    lookback = 50
+    
+    // Identify pivot highs and pivot lows to form channel boundaries
+    pivotHighs = array.new_int()
+    pivotLows = array.new_int()
+    
+    for i = 0 to lookback
+        ph = pp.findPivotHigh(5, 5)
+        pl = pp.findPivotLow(5, 5)
+        if (not na(ph))
+            array.push(pivotHighs, ph)
+        if (not na(pl))
+            array.push(pivotLows, pl)
+    
+    // Check if there are enough pivot points to form a channel
+    if (array.size(pivotHighs) >= 2 and array.size(pivotLows) >= 2)
+        // Calculate support and resistance trendlines
+        supportLow1 = low[array.get(pivotLows, 0)]
+        supportLow2 = low[array.get(pivotLows, 1)]
+        resistanceHigh1 = high[array.get(pivotHighs, 0)]
+        resistanceHigh2 = high[array.get(pivotHighs, 1)]
+        
+        supportSlope = (supportLow2 - supportLow1) / (array.get(pivotLows, 1) - array.get(pivotLows, 0))
+        resistanceSlope = (resistanceHigh2 - resistanceHigh1) / (array.get(pivotHighs, 1) - array.get(pivotHighs, 0))
+        
+        // Check if both slopes are positive and approximately equal
+        if (supportSlope > 0 and resistanceSlope > 0 and math.abs(supportSlope - resistanceSlope) < 0.001)
+            // Check if the current price is within the channel
+            supportLine = supportLow2 + supportSlope * (bar_index - array.get(pivotLows, 1))
+            resistanceLine = resistanceHigh2 + resistanceSlope * (bar_index - array.get(pivotHighs, 1))
+            
+            if (close >= supportLine and close <= resistanceLine)
+                bc := pi.PatternInfo.new(
+                    pt.PatternType.BULLISH_CHANNEL,
+                    ds.DetectionStatus.DETECTED,
+                    array.get(pivotHighs, 1),
+                    array.get(pivotHighs, 0),
+                    supportLine
+                )
+    
+    bc

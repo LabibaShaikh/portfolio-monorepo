@@ -1,0 +1,39 @@
+//@version=5
+import "../enums/pattern_types.pine" as pt
+import "../enums/detection_status.pine" as ds
+import "../types/pattern_info.pine" as pi
+import "../utils/calculations.pine" as calc
+
+// Function to detect large wick pattern
+pi.PatternInfo detectWick() =>
+    var pi.PatternInfo wk = pi.PatternInfo.new(pt.PatternType.NONE, ds.DetectionStatus.NOT_DETECTED, na, na, na)
+    
+    // Define wick size threshold
+    wickSizePercent = 70
+    
+    // Calculate wick size
+    upperWick = high - math.max(close, open)
+    lowerWick = math.min(close, open) - low
+    
+    // Determine if upper or lower wick is significant
+    isUpperWick = (upperWick / (high - low) * 100) > wickSizePercent
+    isLowerWick = (lowerWick / (high - low) * 100) > wickSizePercent
+    
+    if (isUpperWick)
+        wk := pi.PatternInfo.new(
+            pt.WICK,
+            ds.DetectionStatus.DETECTED,
+            bar_index,
+            bar_index,
+            low
+        )
+    else if (isLowerWick)
+        wk := pi.PatternInfo.new(
+            pt.WICK,
+            ds.DetectionStatus.DETECTED,
+            bar_index,
+            bar_index,
+            high
+        )
+    
+    wk

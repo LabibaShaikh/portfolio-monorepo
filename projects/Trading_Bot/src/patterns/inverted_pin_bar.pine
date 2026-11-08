@@ -1,0 +1,37 @@
+//@version=5
+import "../enums/pattern_types.pine" as pt
+import "../enums/detection_status.pine" as ds
+import "../types/pattern_info.pine" as pi
+import "../utils/calculations.pine" as calc
+
+// Function to detect Inverted Pin Bar pattern
+pi.PatternInfo detectInvertedPinBar() =>
+    var pi.PatternInfo ipb = pi.PatternInfo.new(pt.PatternType.NONE, ds.DetectionStatus.NOT_DETECTED, na, na, na)
+    
+    // Define the body size relative to the candle range
+    bodySizePercent = 30
+    tailSizePercent = 70
+    
+    // Calculate candle metrics
+    body = math.abs(close - open)
+    candleRange = high - low
+    tail = (close > open) ? (high - close) : (open - high)
+    
+    // Avoid division by zero
+    candleRange := candleRange == 0 ? 1 : candleRange
+    
+    // Check if the tail is at least 70% of the candle range
+    if ((body / candleRange * 100) < bodySizePercent and (tail / candleRange * 100) > tailSizePercent)
+        // Determine if it's bullish or bearish
+        patternType = close > open ? pt.INVERTED_PIN_BAR : pt.INVERTED_PIN_BAR
+        // Set confirmation level based on bullish or bearish
+        confirmationLevel = close > open ? high : low
+        ipb := pi.PatternInfo.new(
+            patternType,
+            ds.DetectionStatus.DETECTED,
+            bar_index,
+            bar_index,
+            confirmationLevel
+        )
+    
+    ipb

@@ -1,0 +1,25 @@
+//@version=5
+strategy("Trading Patterns Strategy", overlay=true, default_qty_type=strategy.percent_of_equity, default_qty_value=10)
+
+// Import the library
+import "TradingPatternsLib" as tp
+
+// Detect all patterns
+detectedPatterns = tp.detectAllPatterns()
+
+// Iterate through detected patterns and execute trades
+for i = 0 to array.size(detectedPatterns) - 1
+    pattern = array.get(detectedPatterns, i)
+    if (pattern.status == tp.DetectionStatus.CONFIRMED)
+        switch pattern.pattern
+            tp.PatternType.BULLISH_FLAG =>
+                strategy.entry("Long_BullishFlag", strategy.long)
+            tp.PatternType.DOUBLE_TOP =>
+                strategy.entry("Short_DoubleTop", strategy.short)
+            tp.PatternType.BEARISH_PENNANT =>
+                strategy.entry("Short_BearishPennant", strategy.short)
+            tp.PatternType.BULLISH_PENNANT =>
+                strategy.entry("Long_BullishPennant", strategy.long)
+            tp.PatternType.DOUBLE_BOTTOM =>
+                strategy.entry("Long_DoubleBottom", strategy.long)
+            // Add trade logic for other patterns as needed

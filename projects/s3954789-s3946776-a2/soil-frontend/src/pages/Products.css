@@ -1,0 +1,84 @@
+/* Styling for the Sales page items */
+@font-face {
+  font-family: "Arapey-Italic";
+  src: url("../../public/Arapey-Italic.ttf");
+}
+
+@font-face {
+  font-family: "GlacialIndifference-Bold";
+  src: url("../../public/GlacialIndifference-Bold.otf");
+}
+
+@font-face {
+  font-family: "GlacialIndifference-Regular";
+  src: url("../../public/GlacialIndifference-Regular.otf");
+}
+
+.Sales-Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Sales {
+  width: 1800px;
+}
+
+.Heading {
+  font-family: "Arapey-Italic";
+  font-size: 50px;
+  text-align: center;
+}
+
+.Sale-Item {
+  display: inline-block;
+  overflow: hidden;
+  width: 25%;
+  height: 550px;
+  padding: 5px;
+  margin-left: 100px;
+  
+}
+
+.Sale-Item img {
+  display: block;
+  width: 500px;
+  height: 300px;
+  transition: 0.4s ease-in-out;
+}
+
+.Sale-Item:hover img {
+  opacity: 0.9;
+  transform: scale(1.2,1.2);
+  cursor: pointer;
+}
+
+/*Text to appear when user hovers over item*/
+.
+
+.Sales::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.Add-to-cart-btn {
+  font-family: "GlacialIndifference-Regular";
+  font-size: 25px;
+  /* margin-left: 0px; */
+  /* border-radius: 20px; */
+  width: 450px;
+  height: 50px;
+}
+
+.Add-to-cart-btn:hover {
+  background-color: #CDD1CD;
+}
+
+  .desc {
+    padding: 15px;
+    text-align: center;
+    font-family: "GlacialIndifference-Regular";
+    font-size: 25px;
+  }
+  

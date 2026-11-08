@@ -1,0 +1,39 @@
+@font-face {
+    font-family: "GlacialIndifference-Regular";
+    src: url("../../public/GlacialIndifference-Regular.otf");
+}
+.DIYVeggies {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    float: right;
+    background-color: antiquewhite;
+}
+
+.text {
+    font-family: "GlacialIndifference-Regular";
+    font-size: 25px;
+    max-width: 600px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0px;
+    right: 100px;
+    height: 500px;
+    width: 900px;
+}
+
+.Learn-More-Btn {
+    height: 70px;
+    width: 200px;
+    font-family: "GlacialIndifference-Regular";
+    font-size: 25px;
+    border-radius: 30px;
+}
+
+.Learn-More-Btn:hover {
+    cursor: pointer;
+    background-color:  #CDD1CD;
+}

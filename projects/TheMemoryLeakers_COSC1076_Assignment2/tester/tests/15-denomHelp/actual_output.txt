@@ -1,0 +1,26 @@
+Main Menu: 
+   1. Display Meal Options
+   2. Purchase Meal
+   3. Save and Exit
+   4. Add Food
+   5. Remove Food
+   6. Display Balance
+   7. Abort Program
+[1;32mSelect your option:  (Type 'h' or 'help' for instructions): [0m[1;32mEnter Food ID to purchase:  (Type 'h' or 'help' for instructions): [0mYou are purchasing: Baklava - Rich middle eastern cake of thin layers of flaky pastry filled with nuts and honey
+Total cost is: [32m$8.50[0m
+You still owe [31m$8.50[0m: [1;32mPlease enter the denomination and count of the coin you want to give:  (Type 'h' or 'help' for instructions): [0m
+Invalid input. Please enter a valid int.
+Not enough money given!
+
+[1;31mTransaction Cancelled.[0m
+
+Main Menu: 
+   1. Display Meal Options
+   2. Purchase Meal
+   3. Save and Exit
+   4. Add Food
+   5. Remove Food
+   6. Display Balance
+   7. Abort Program
+[1;32mSelect your option:  (Type 'h' or 'help' for instructions): [0m
+[1;33mQuitting program...[0m

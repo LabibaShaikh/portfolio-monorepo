@@ -1,0 +1,132 @@
+[
+  {
+    "id": "INC_001",
+    "title": "Fever Cluster: Hydroponics",
+    "narrative": "Three technicians report chills and disorientation. CO2 spikes are logged near the grow stacks.",
+    "evidence": {
+      "vitals": "Temp 39.2C, HR 118, SpO2 93%",
+      "lab": "CBC: lymphopenia; CRP elevated",
+      "environment": "CO2 spikes; airflow anomaly Sector H",
+      "comms": "‘Filters keep resetting. Not us.’"
+    },
+    "flags": { "sensorCompromised": false, "airborneRisk": true, "mutationSpike": false, "containmentBreach": false },
+    "effects": { "infection": 2, "power": -1 }
+  },
+  {
+    "id": "INC_002",
+    "title": "Cold Storage Seal Warning",
+    "narrative": "Containment freezer reports intermittent seal pressure. A thin layer of frost appears in the corridor.",
+    "evidence": {
+      "vitals": "No direct patient vitals",
+      "lab": "Swipe test pending",
+      "environment": "Seal pressure oscillation; humidity spike",
+      "comms": "‘Door actuator lagging.’"
+    },
+    "flags": { "sensorCompromised": false, "airborneRisk": false, "mutationSpike": false, "containmentBreach": true },
+    "effects": { "integrity": -2 }
+  },
+  {
+    "id": "INC_003",
+    "title": "Sequencer Queue Collapse",
+    "narrative": "The sequencer farm is overloaded. Sample backlog growing; reports of dropped reads.",
+    "evidence": {
+      "vitals": "N/A",
+      "lab": "Read depth insufficient; error rate rising",
+      "environment": "Compute throttling; storage IO saturated",
+      "comms": "‘We need more compute now.’"
+    },
+    "flags": { "sensorCompromised": false, "airborneRisk": false, "mutationSpike": true, "containmentBreach": false },
+    "effects": { "mutation": 3, "trust": -1 }
+  },
+  {
+    "id": "INC_004",
+    "title": "Sensor Drift Detected",
+    "narrative": "Environmental sensors show conflicting readings. Apollo reports integrity concerns.",
+    "evidence": {
+      "vitals": "N/A",
+      "lab": "N/A",
+      "environment": "O2 reads differ by 8% between panels",
+      "comms": "‘Something is spoofing telemetry.’"
+    },
+    "flags": { "sensorCompromised": true, "airborneRisk": true, "mutationSpike": false, "containmentBreach": false },
+    "effects": { "trust": -2 }
+  },
+  {
+    "id": "INC_005",
+    "title": "Ventilation Backflow",
+    "narrative": "Air handlers reverse briefly. A metallic smell spreads through the lab wing.",
+    "evidence": {
+      "vitals": "Temp 38.1C, HR 105, SpO2 91%",
+      "lab": "PCR positive; viral load moderate",
+      "environment": "Backflow event; filter pressure drop",
+      "comms": "‘Backflow lasted 27 seconds.’"
+    },
+    "flags": { "sensorCompromised": false, "airborneRisk": true, "mutationSpike": false, "containmentBreach": true },
+    "effects": { "infection": 3, "integrity": -2, "power": -1 }
+  },
+  {
+    "id": "INC_006",
+    "title": "Crew Fatigue Spiral",
+    "narrative": "Shift reports indicate mistakes and near-misses. Protocol adherence dropping.",
+    "evidence": {
+      "vitals": "N/A",
+      "lab": "N/A",
+      "environment": "N/A",
+      "comms": "‘People are skipping decon.’"
+    },
+    "flags": { "sensorCompromised": false, "airborneRisk": false, "mutationSpike": false, "containmentBreach": false },
+    "effects": { "trust": -3 }
+  },
+  {
+    "id": "INC_007",
+    "title": "Rapid Antigen False Negatives",
+    "narrative": "Antigen tests show negative while PCR indicates positive. Confusion spreads.",
+    "evidence": {
+      "vitals": "Temp 39.0C, HR 122, SpO2 94%",
+      "lab": "PCR positive; antigen negative",
+      "environment": "N/A",
+      "comms": "‘Tests disagree. What do we trust?’"
+    },
+    "flags": { "sensorCompromised": true, "airborneRisk": false, "mutationSpike": true, "containmentBreach": false },
+    "effects": { "mutation": 2, "trust": -2 }
+  },
+  {
+    "id": "INC_008",
+    "title": "Water Recycling Contamination",
+    "narrative": "The recycler flags microbial contamination. Rationing recommended.",
+    "evidence": {
+      "vitals": "N/A",
+      "lab": "Culture: mixed growth",
+      "environment": "Recycler UV output low",
+      "comms": "‘If we shut it down, power stabilizes—but water won’t.’"
+    },
+    "flags": { "sensorCompromised": false, "airborneRisk": false, "mutationSpike": false, "containmentBreach": false },
+    "effects": { "power": -2, "integrity": -1 }
+  },
+  {
+    "id": "INC_009",
+    "title": "Unauthorized Patch on Apollo",
+    "narrative": "A rogue update appears on the advisor subsystem. Trust fractures immediately.",
+    "evidence": {
+      "vitals": "N/A",
+      "lab": "N/A",
+      "environment": "Net traffic spike; checksum mismatch",
+      "comms": "‘Who pushed this?’"
+    },
+    "flags": { "sensorCompromised": true, "airborneRisk": false, "mutationSpike": false, "containmentBreach": false },
+    "effects": { "trust": -4, "power": -1 }
+  },
+  {
+    "id": "INC_010",
+    "title": "Countermeasure Trial Failure",
+    "narrative": "Early antiviral candidate underperforms. Mutation pressure increases as you regroup.",
+    "evidence": {
+      "vitals": "Temp 39.3C, HR 119, SpO2 92%",
+      "lab": "IC50 worse than baseline; resistant markers suspected",
+      "environment": "N/A",
+      "comms": "‘We need sequencing + compute. Now.’"
+    },
+    "flags": { "sensorCompromised": false, "airborneRisk": false, "mutationSpike": true, "containmentBreach": false },
+    "effects": { "mutation": 4, "countermeasure": -5, "trust": -1 }
+  }
+]

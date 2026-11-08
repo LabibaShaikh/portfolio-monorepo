@@ -1,0 +1,78 @@
+//@version=5
+indicator("Trading Patterns Detection Indicator", overlay=true)
+
+// Import the library
+import "TradingPatternsLib" as tp
+
+// Detect all patterns
+detectedPatterns = tp.detectAllPatterns()
+
+// Iterate through detected patterns and plot markers
+for i = 0 to array.size(detectedPatterns) - 1
+    pattern = array.get(detectedPatterns, i)
+    if (pattern.status == tp.DetectionStatus.CONFIRMED)
+        // Define label properties based on pattern type
+        var string labelText = ""
+        var color labelColor = color.blue
+        switch pattern.pattern
+            tp.PatternType.DOUBLE_TOP => 
+                labelText := "Double Top"
+                labelColor := color.red
+            tp.PatternType.BULLISH_FLAG =>
+                labelText := "Bullish Flag"
+                labelColor := color.green
+            tp.PatternType.BEARISH_FLAG =>
+                labelText := "Bearish Flag"
+                labelColor := color.maroon
+            tp.PatternType.BULLISH_PENNANT =>
+                labelText := "Bullish Pennant"
+                labelColor := color.teal
+            tp.PatternType.BEARISH_PENNANT =>
+                labelText := "Bearish Pennant"
+                labelColor := color.purple
+            tp.PatternType.SYMMETRICAL_TRIANGLE =>
+                labelText := "Symmetrical Triangle"
+                labelColor := color.gray
+            tp.PatternType.ASCENDING_TRIANGLE =>
+                labelText := "Ascending Triangle"
+                labelColor := color.lime
+            tp.PatternType.DESCENDING_TRIANGLE =>
+                labelText := "Descending Triangle"
+                labelColor := color.orange
+            tp.PatternType.DOUBLE_BOTTOM =>
+                labelText := "Double Bottom"
+                labelColor := color.green
+            tp.PatternType.BULLISH_CHANNEL =>
+                labelText := "Bullish Channel"
+                labelColor := color.green
+            tp.PatternType.BEARISH_CHANNEL =>
+                labelText := "Bearish Channel"
+                labelColor := color.red
+            tp.PatternType.BEARISH_HEAD_AND_SHOULDERS =>
+                labelText := "Bearish Head & Shoulders"
+                labelColor := color.red
+            tp.PatternType.CUP_AND_HANDLE =>
+                labelText := "Cup & Handle"
+                labelColor := color.blue
+            tp.PatternType.BULLISH_ABCD =>
+                labelText := "Bullish ABCD"
+                labelColor := color.green
+            tp.PatternType.BEARISH_ABCD =>
+                labelText := "Bearish ABCD"
+                labelColor := color.red
+            tp.PatternType.PIN_BAR =>
+                labelText := "Pin Bar"
+                labelColor := color.yellow
+            tp.PatternType.INVERTED_PIN_BAR =>
+                labelText := "Inverted Pin Bar"
+                labelColor := color.fuchsia
+            tp.PatternType.WICK =>
+                labelText := "Wick"
+                labelColor := color.aqua
+            default =>
+                labelText := "Unknown Pattern"
+                labelColor := color.white
+        
+        // Plot the label at the end bar of the pattern
+        label.new(bar_index[pattern.endBar], high[pattern.endBar], labelText, 
+                  color=labelColor, style=label.style_label_down, textcolor=color.white, size=size.small)

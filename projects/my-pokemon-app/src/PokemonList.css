@@ -1,0 +1,10 @@
+.pagination button.active {
+    background-color: #007bff; /* Bootstrap primary color for example */
+    color: white;
+}
+
+.pagination button {
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+}

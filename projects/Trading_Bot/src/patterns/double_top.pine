@@ -1,0 +1,33 @@
+//@version=5
+import "../enums/pattern_types.pine" as pt
+import "../enums/detection_status.pine" as ds
+import "../types/pattern_info.pine" as pi
+import "../utils/pivot_points.pine" as pp
+import "../utils/calculations.pine" as calc
+
+// Function to detect Double Top pattern
+pi.PatternInfo detectDoubleTop() =>
+    var pi.PatternInfo dt = pi.PatternInfo.new(pt.PatternType.NONE, ds.DetectionStatus.NOT_DETECTED, na, na, na)
+    
+    // Define the lookback period
+    lookback = 50
+    
+    // Identify two pivot highs within the lookback period
+    pivotHigh1 = pp.findPivotHigh(5, 5)
+    pivotHigh2 = pp.findPivotHigh(5, 5)
+    
+    if (not na(pivotHigh1) and not na(pivotHigh2))
+        // Check if the two pivot highs are approximately equal within 0.5% tolerance
+        if (calc.percentDifference(high[pivotHigh1], high[pivotHigh2]) < 0.5)
+            // Find a pivot low between the two pivot highs
+            trough = pp.findPivotLow(5, 5)
+            if (not na(trough) and trough > pivotHigh1 and trough < pivotHigh2)
+                dt := pi.PatternInfo.new(
+                    pt.PatternType.DOUBLE_TOP,
+                    ds.DetectionStatus.DETECTED,
+                    pivotHigh1,
+                    pivotHigh2,
+                    low[trough]
+                )
+    
+    dt
