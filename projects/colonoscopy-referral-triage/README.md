@@ -2,39 +2,36 @@
 
 **Original repository:** [RMIT Programming Project 1](https://github.com/rmit-computing-technologies/Programming-Project-1.git)
 
-## Resume summary
+## Overview
 
-Developed a machine-learning capstone project to predict colonoscopy referral-priority categories and support safer clinical triage workflows.
-
-## Technologies
-
-Python, Jupyter Notebook, pandas, NumPy, scikit-learn, LightGBM, XGBoost, TensorFlow/Keras, Matplotlib and Seaborn.
+RMIT machine-learning capstone investigating multiclass prediction of colonoscopy referral priority: Cat 1 urgent, Cat 2 semi-urgent and Cat 3 routine. It is a university clinical decision-support prototype, not a deployed medical product or replacement for clinician judgment.
 
 ## Engineering focus
 
-- Multiclass prediction of urgent, semi-urgent and routine referral categories
-- Data validation, missing-value analysis, feature engineering and leakage prevention
-- Comparison of logistic regression, ensemble, boosting and recurrent-neural-network approaches
-- Clinical-safety workflows including low-confidence flags, clinical review queues and misclassification analysis
-- Flexible input standardisation for dictionary and JSON records
-- Deployment-oriented design that supports clinician judgment rather than replacing it
+- Dataset validation, missing-value checks, consistency checks, outlier analysis and leakage prevention
+- Comparison of logistic regression, Random Forest, Extra Trees, XGBoost, LightGBM and a GRU-based model
+- Evaluation using accuracy, balanced accuracy, macro F1, macro recall and urgent-category recall
+- Low-confidence flags, clinical review outputs and misclassification analysis
+- Input standardisation for dictionary and JSON records
 
-The source README reports LightGBM as the selected model and records accuracy, balanced accuracy, macro F1 and urgent-category recall metrics. These results should be reproduced from the notebooks before being presented as current benchmarks.
+The source README identifies LightGBM as the selected model and reports benchmark metrics. Reproduce the notebooks before treating those metrics as current results.
 
-## Contribution
+## Technologies
 
-The notebook identifies Shaikh Naima Labiba (`s3954789`) as a team member alongside Daniel Rowley, GeonHyeong Do and Julian Mariano. The available archive does not provide a reliable task-by-task contribution breakdown, so this portfolio does not assign individual model components without evidence.
+Python, Jupyter, pandas, NumPy, scikit-learn, LightGBM, XGBoost, TensorFlow/Keras, Matplotlib and Seaborn.
 
-## Running the notebooks
+## Contribution and attribution
 
-Open `ST-673_organized.ipynb` in Jupyter or Google Colab. Install the dependencies listed in the notebook before execution and provide an approved, non-identifying dataset at the expected path.
+The notebook identifies Shaikh Naima Labiba (`s3954789`) as a team member alongside Daniel Rowley, GeonHyeong Do and Julian Mariano. The archive does not provide a reliable task-by-task breakdown, so this portfolio does not claim sole ownership of a specific model or evaluation result.
 
-The included notebooks have their saved outputs cleared for portfolio publishing. They are documentation and analysis artefacts, not an independently packaged production service.
+## Running and validation
+
+Open `ST-673_organized.ipynb` in Jupyter or Google Colab and install its imports in an isolated environment. The portfolio notebooks have saved outputs cleared. No current training run is claimed here.
 
 ## Privacy
 
-The original archive contained a patient-level CSV with patient identifiers, dates, clinician names, procedure rooms and clinical fields, plus a sample patient JSON file. Those files were intentionally excluded from this public portfolio snapshot. Do not add them or any identifiable healthcare data without explicit authorization and de-identification review.
+The source archive contained patient-level healthcare and operational data. The CSV and sample patient JSON were excluded; only notebooks with cleared outputs and documentation are included. Use an approved, de-identified dataset for reproduction.
 
-## Snapshot provenance
+## Future work
 
-`SOURCE_README.md` is the original README from the uploaded archive. The archive did not include Git metadata, so the original repository remains the source of truth for complete history, branches and attribution.
+External multi-hospital validation, SHAP explanations, referral-text NLP, a clinician-reviewed dashboard and prospective evaluation would be required before considering operational use.

@@ -19,3 +19,5 @@ The source repositories use mixed or unspecified licensing. This portfolio inten
 The snapshot excludes generated dependencies, build output, compiled objects, notebook checkpoints, submission PDFs/documents and environment files. Secrets must never be copied into this repository; use local `.env` files based on committed `.env.example` files.
 
 Before publishing additional projects, check for API keys, database credentials, private datasets, patient-level data, personal contact details and university restrictions.
+
+The Soil Organics snapshot currently contains a source configuration file with hard-coded database credentials inherited from the original project. Do not treat this as safe to redistribute: rotate the credential and remove or redact it before the next public release. The capstone patient dataset was intentionally excluded.

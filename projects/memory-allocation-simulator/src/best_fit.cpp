@@ -1,6 +1,7 @@
 #include "memory_manager.h"
 #include <iostream>
 #include <list>
+#include <cstdint>
 #include <unistd.h> // for sbrk()
 
 extern std::list<Allocation> allocated_list; // List of allocated memory chunks

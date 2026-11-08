@@ -1,0 +1,11 @@
+# Microsoft IC2 interview guide
+
+These are evidence-backed discussion prompts, not claims that every project is production-ready.
+
+| Project | Resume-ready description | Two interview talking points | Challenge | Design tradeoff |
+|---|---|---|---|---|
+| Concurrent File Copy | Built a POSIX-threaded file copier with a bounded producer-consumer queue. | Explain mutex/condition-variable coordination; discuss completion signalling and shared file-stream access. | Coordinating readers and a writer without busy waiting. | Simplicity of one shared queue versus throughput and deterministic line ordering. |
+| Memory Allocation Simulator | Implemented first-fit and best-fit allocation with linked-list free-block tracking and `sbrk` expansion. | Compare fragmentation behavior; explain deallocation and coalescing invariants. | Maintaining consistent free and allocated lists after split/free operations. | Educational control with `sbrk` versus safety and portability of modern allocators. |
+| Minecraft Maze Runner | Contributed recursive maze generation, BFS shortest-route integration, debugging and tests to a collaborative Spigot application. | Explain BFS predecessor reconstruction; discuss debugging a route rendered in a live world. | Aligning algorithmic state with Minecraft block state and existing menu flows. | Wall following is simpler; BFS gives shortest paths but requires more state. |
+| Soil Organics | Contributed to a collaborative React/Express/MySQL grocery platform with reviews and administration. | Trace a request from React helper to Express controller and Sequelize model; discuss test gaps. | Coordinating frontend, backend and database behavior across a team. | Fast feature delivery versus stronger validation, authentication boundaries and integration coverage. |
+| Colonoscopy Referral Triage | Developed a university capstone evaluating ML models for referral-priority prediction with safety-aware review workflows. | Explain multiclass and macro metrics; discuss leakage prevention and why clinical review remains necessary. | Optimising urgent-case recall without presenting predictions as clinical decisions. | Predictive performance versus interpretability, calibration and external validation. |

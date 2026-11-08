@@ -1,130 +1,53 @@
-# OSP_A3
-# Memory Allocation Simulation
+# Memory Allocation Simulator
 
-## Author Information
-- **Name**: Shaikh Naima Labiba
-- **Student Number**: s3954789
-- **Repo Link**: [https://github.com/LabibaShaikh/OSP_A3.git]
-# OSP_A3: Memory Allocation Simulation
+**Original repository:** [LabibaShaikh/OSP_A3](https://github.com/LabibaShaikh/OSP_A3)
 
-## Author Information
-- **Name**: Shaikh Naima Labiba
-- **Student Number**: s3954789
+## Overview
 
-## Project Overview
-This project simulates memory management techniques in operating systems, specifically focusing on **First-Fit** and **Best-Fit** memory allocation strategies. The project is written in **C++**, using **linked lists** to manage allocated and free memory chunks. The simulation demonstrates the efficiency and drawbacks of these two allocation techniques in various scenarios.
+C++ simulation of fixed-partition memory allocation. It compares first-fit and best-fit policies while tracking allocated and free blocks in linked lists.
 
-## Project Tasks
-The project has been divided into the following tasks:
+## Engineering design
 
-### Task 1: Solution Design (10 marks)
-- Utilized **linked lists** to manage memory allocations and free memory chunks.
-- Implemented a `struct allocation` to represent memory chunks.
-- Used global variables to track memory chunks.
-
-### Task 2: Memory Allocation (10 marks)
-- Implemented `alloc()` to allocate memory in fixed partition sizes of **32, 64, 128, 256, and 512 bytes**.
-- Memory expansion handled using the **`sbrk()`** system call if no suitable chunk is available.
-
-### Task 3: Allocation Strategies (25 marks)
-- **First-Fit**: Allocates the first chunk that fits.
-- **Best-Fit**: Allocates the smallest chunk that fits, minimizing fragmentation.
-
-### Task 4: Memory Deallocation (10 marks)
-- Implemented `dealloc()` to deallocate allocated memory chunks and return them to the free list.
-- Merged adjacent free chunks to reduce fragmentation.
-
-### Task 5: Testing (5 marks)
-- Used the provided **`p2_gen.sh`** script to generate test sequences.
-- Tested memory management with interleaved **alloc** and **dealloc** commands.
-
-## Project Structure
-
-```
-OSP_A3/
-├── src/
-│   ├── main_firstfit.cpp        # Entry point for the First-Fit strategy
-│   ├── main_bestfit.cpp         # Entry point for the Best-Fit strategy
-│   ├── memory_manager.cpp       # Memory allocation and deallocation logic
-│   ├── first_fit.cpp            # Implementation of the First-Fit strategy
-│   ├── best_fit.cpp             # Implementation of the Best-Fit strategy
-│   ├── include/
-│   │   └── memory_manager.h     # Header file for memory management functions and structs
-├── p2_gen.sh                # Script to generate test data
-├── datafile                 # Sample data file for testing
-├── bin/
-│   ├── firstfit                 # Compiled executable for First-Fit strategy
-│   ├── bestfit                  # Compiled executable for Best-Fit strategy
-├── build/
-│   └── *.o                      # Object files generated during compilation
-├── Makefile                     # Makefile for building and cleaning the project
-├── README.md                    # Project documentation and instructions
-└── LICENSE                      # License for the project
-
+```mermaid
+flowchart LR
+  I[alloc request] --> N[Round to 32/64/128/256/512]
+  N --> P{Free block found?}
+  P -->|first-fit| F[Choose first suitable block]
+  P -->|best-fit| B[Choose smallest suitable block]
+  P -->|no| S[sbrk expansion]
+  F --> U[Update free and allocated lists]
+  B --> U
+  S --> U
+  D[dealloc] --> C[Insert sorted free block]
+  C --> M[Merge adjacent free blocks]
 ```
 
+The allocator rounds requests to fixed partition sizes, splits a selected free block, returns it to the allocated list, and coalesces released blocks. First-fit prioritises search speed; best-fit minimises the immediate leftover size but may increase fragmentation elsewhere.
 
-## Building and Running the Project
+## Technologies
 
-### Prerequisites
-- A Linux environment or **WSL** (Windows Subsystem for Linux) is required for compiling and running the program.
-- **Make** must be installed to use the provided Makefile.
+C++, `std::list`, pointer arithmetic, `sbrk`, Make, Linux/WSL and `bc` for the supplied test-data generator.
 
-### Build Instructions
-1. Clone the repository:
-  ```bash
-  git clone https://github.com/LabibaShaikh/OSP_A3.git
-  ```
+## Contribution
 
-2. Navigate to the project directory and build the project:
-  ```bash
-  cd OSP_A3
-  make all
-  ```
+The original README identifies Shaikh Naima Labiba as the author and documents the allocation, deallocation, first-fit, best-fit and test-data workflow.
 
-3. Running the project:
+## Build and run
 
-  You can run both First-Fit and Best-Fit allocation strategies using the following commands:
+```bash
+make all
+./bin/firstfit datafile
+./bin/bestfit datafile
+./p2_gen.sh 20 > datafile
+make clean
+```
 
-  **First-Fit Allocation:**
-  ```bash
-  ./bin/firstfit datafile
-  ```
+The generator requires the system `bc` utility. If it is unavailable, use an existing command file or install `bc` before running `p2_gen.sh`.
 
-  **Best-Fit Allocation:**
-  ```bash
-  ./bin/bestfit datafile
-  ```
+## Validation
 
-  Where `datafile` is the generated file containing a sequence of `alloc` and `dealloc` commands.
+The project includes a Makefile and generated command sequences. A current build was verified locally with `make`; the generator-driven behavioral comparison was not claimed as a complete test suite.
 
-4. Generating Test Data:
-  To generate test sequences of `alloc` and `dealloc` commands, first make the `p2_gen.sh` script executable and then run it:
+## Engineering limitations and future work
 
-  ```bash
-  chmod +x p2_gen.sh
-  ./p2_gen.sh 20 > datafile
-  ```
-
-  This command will generate 20 interleaved `alloc` and `dealloc` commands into a `datafile`.
-
-5. Cleaning the Build:
-  To clean up object files and executables, run the following command:
-  ```bash
-  make clean
-  ```
-
-6. Testing the Project:
-  Use the `p2_gen.sh` script to generate test sequences, then run the project with the generated `datafile` using the `firstfit` or `bestfit` executables.
-  Example test generation and execution:
-  ```bash
-  ./p2_gen.sh 20 > datafile
-  ./bin/firstfit datafile   # Run First-Fit strategy
-  ./bin/bestfit datafile    # Run Best-Fit strategy
-  ```
-  This will execute the First-Fit and Best-Fit allocation strategies and display the allocated and free memory chunks.
-
-  Note: The project dynamically expands the memory pool if the required chunk size is not available. This feature simulates real-world memory management where memory may be expanded when necessary.
-
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+The implementation uses global lists and `sbrk`, which are useful for demonstrating allocator mechanics but are not appropriate for modern general-purpose allocation APIs. Coalescing uses an address tolerance rather than a strict adjacency invariant; a stronger implementation would track exact block boundaries, validate double frees and isolate allocator state behind a typed manager.

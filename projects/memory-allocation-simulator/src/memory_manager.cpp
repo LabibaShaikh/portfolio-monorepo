@@ -1,6 +1,7 @@
 #include <iostream>  // Include the iostream library for input/output operations 
 #include <list>      // Include the list library for using std::list
 #include <cstddef>   // Include the cstddef library for std::size_t
+#include <cstdint>   // Include std::uintptr_t for address comparisons
 #include <unistd.h>  // Include the unistd library for sbrk()
 
 // Structure to represent a memory allocation

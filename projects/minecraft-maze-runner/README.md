@@ -3,48 +3,43 @@
 **Original repository:** [COSC2804 SEP 2023 Assignment 3 — Team 58](https://github.com/rmit-computing-technologies/cosc2804-sep-23-assignment-3-team-58-cosc2804-sep23)  
 **Team:** BitBusters
 
-## Resume summary
+## Overview
 
-Collaborated on a C++ Minecraft maze-generation and solving application integrated with a Spigot 1.19.4 server. The program supports terminal-defined and procedurally generated mazes, Minecraft construction, manual navigation, escape-route visualisation, terrain handling and world restoration.
+Collaborative C++ application integrated with a Minecraft Spigot 1.19.4 server. Users can define or generate a maze, build it in Minecraft, navigate manually and display an escape route.
 
-## Engineering highlights
+## Architecture and algorithms
 
-- Recursive-backtracking maze generation with randomized traversal and entrance creation
-- Minecraft world integration through `mcpp::MinecraftConnection`
-- Menu-driven state machine for generation, construction, solving, team information and cleanup
-- Manual player placement and navigation
-- Right-hand wall following for route visualisation
-- Enhancement 2 shortest-route mode using breadth-first search and path reconstruction
-- Automated input/output fixtures covering menu validation, maze generation, solving and route display
+```mermaid
+flowchart LR
+  CLI[mazeRunner state machine] --> GEN[mazeGenerator / genMaze]
+  CLI --> BUILD[Maze / buildMaze]
+  CLI --> SOLVE[solveManually / Agent]
+  GEN --> GRID[2D character maze]
+  GRID --> BUILD
+  BUILD --> MC[mcpp MinecraftConnection]
+  SOLVE --> WALL[Right-hand wall following]
+  SOLVE --> BFS[Breadth-first shortest path]
+  BFS --> ROUTE[Path reconstruction and visualisation]
+```
 
-## My documented contribution
+- Recursive backtracking carves randomized perfect mazes.
+- Right-hand wall following provides the normal escape-route behavior.
+- Enhancement 2 uses breadth-first search and previous-node references to reconstruct a shortest route.
+- `mcpp::MinecraftConnection` handles player position, block reads/writes and commands.
 
-The source project README maps `LabibaShaikh` to student `s3954789` and records:
+## Documented contribution
+
+The source README maps `LabibaShaikh` to `s3954789` and records:
 
 - Collaboration on maze initialization and recursive-backtracking logic
-- An individual `Labiba_menu` branch implementation for menu navigation
-- Development of the Enhancement 2 shortest-escape-route implementation
-- Integration of the route implementation into `main`
-- Debugging route-visualisation issues where the route did not appear correctly in Minecraft
-- Contributions to the shared test cases
+- The `Labiba_menu` branch menu-navigation implementation
+- Enhancement 2 shortest-escape-route development and integration
+- Debugging route-visualisation issues in Minecraft
+- Contributions to shared test cases
 
-The final program was collaborative. The source README identifies teammates and distinguishes code merged from each branch; this summary does not claim sole ownership of the complete application.
-
-## Repository structure
-
-| Area | Purpose |
-|---|---|
-| `mazeGenerator.cpp`, `genMaze.h` | Random maze generation |
-| `genMaze_E1.h` | Terrain-aware Enhancement 1 generation |
-| `buildMaze.cpp`, `Maze.cpp` | Minecraft construction and restoration |
-| `Agent.cpp` | Player orientation, wall following and shortest-route behavior |
-| `solveManually.cpp` | Player placement for manual solving |
-| `mazeRunner.cpp` | Command-line modes and application state machine |
-| `Tests/` | Input/output regression fixtures |
+The final program was collaborative; the source README distinguishes teammates' branch work.
 
 ## Build and run
-
-The original Makefile uses C++17, `-Wall`, `-Werror` and the external `mcpp` library:
 
 ```bash
 make
@@ -54,12 +49,12 @@ make
 ./mazeRunner -E2
 ```
 
-The application requires a running Minecraft Spigot 1.19.4 server and the `mcpp` headers/library. A build was attempted against the portfolio environment but could not start because `mcpp/mcpp.h` is not installed here.
+Requires C++17, the external `mcpp` library and a running Minecraft Spigot 1.19.4 server. The build was not possible in this environment because `mcpp/mcpp.h` is unavailable.
 
 ## Testing
 
-The `Tests/` directory contains regression fixtures for invalid input, random maze dimensions, terminal maze loading, menu options, manual solving, route display and solve-before-build behavior. The source README records that all team members contributed test cases. The full test harness was not executed in this environment because the external Minecraft dependency is unavailable.
+`Tests/` contains input/output fixtures for invalid input, dimensions, terminal maze loading, menu options, manual solving, route display and solve-before-build behavior. The full harness was not run because the external dependency and Minecraft environment are unavailable.
 
-## Snapshot provenance
+## Challenge and tradeoff
 
-`SOURCE_README.md` is the original project README from the uploaded archive. The archive did not include Git history, so this monorepo preserves the source snapshot and attribution but not the original commit graph. The original repository remains the source of truth for branches and history.
+The route visualisation had to remain consistent with a live Minecraft world while integrating with existing menu and maze-building code. The project supports both a simple wall-following strategy and a BFS shortest-route enhancement, trading implementation simplicity for optimal path length.
