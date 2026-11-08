@@ -2,13 +2,15 @@
 
 ## Inventory
 
-This monorepo contains snapshots of 28 projects: 27 repositories discovered through the GitHub account and recorded contribution search, plus the uploaded Maze Runner source snapshot:
+This monorepo contains snapshots of 28 projects: 27 repositories discovered through the GitHub account and recorded contribution search, plus the uploaded Maze Runner source snapshot. It also contains a documentation-only capstone entry:
 
 `A3_Assessment`, `Assign1-s12345-s67890`, `book-grocer`, `BSA`, `C-`, `Database_Systems_s3954789_A3`, `interview`, `LeetCode`, `MachineLearning_A2`, `methodologies`, `Methodology`, `my-pokemon-app`, `OSP_A1`, `OSP_A3`, `Patient0`, `Project1`, `Project1-C--`, `s3954789_ML_A2`, `sandworm-apollo`, `starter_code_111`, `TheMemoryLeakers_COSC1076_Assignment2`, `Trading_Bot`, `Vacuum_clean_apt`, `s3954789-s3946776-a2`, `s3954789-s3946776-a2-HD`, `AlgoAnalysisAssgnmt1_grp48` and `math_2`.
 
 The four empty repositories have retained placeholder READMEs. Projects with limited documentation are linked from the main README without invented descriptions.
 
 The Maze Runner source was added from the uploaded ZIP archive. The archive contains 58 source, documentation and test files but no Git metadata, so its original commit history is not preserved in this monorepo.
+
+The capstone entry links to `https://github.com/rmit-computing-technologies/Programming-Project-1.git`. GitHub returned 404 through this session, so no source files, languages or individual contribution claims were copied from it.
 
 ## Quality observations
 

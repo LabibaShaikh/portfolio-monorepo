@@ -18,10 +18,11 @@ The directories under `projects/` are review-friendly snapshots. The original Gi
 | [Sandworm Apollo](projects/sandworm-apollo) | C++, C, C# | Playable game vertical slice with state-driven interactions and win/loss conditions |
 | [Trading Bot](projects/Trading_Bot) | Pine Script | Modular market-pattern detection library with examples and tests |
 | [Minecraft Maze Runner](projects/minecraft-maze-runner) | C++, Java, Spigot 1.19.4 | Collaborative procedural maze generation, Minecraft world construction and shortest-route visualisation |
+| [Colonoscopy Referral Triage](projects/colonoscopy-referral-triage) | To be verified from source | Capstone project focused on clinical referral triage |
 
 ## Additional projects
 
-[A3_Assessment](projects/A3_Assessment) · [book-grocer](projects/book-grocer) · [C-](projects/C-) · [Database Systems A3](projects/Database_Systems_s3954789_A3) · [interview](projects/interview) · [LeetCode](projects/LeetCode) · [Methodology](projects/Methodology) · [my-pokemon-app](projects/my-pokemon-app) · [Patient0](projects/Patient0) · [Project1](projects/Project1) · [Project1-C--](projects/Project1-C--) · [TheMemoryLeakers Assignment 2](projects/TheMemoryLeakers_COSC1076_Assignment2) · [Vacuum Cleaner APT](projects/Vacuum_clean_apt) · [Admin Dashboard](projects/s3954789-s3946776-a2-HD) · [Algorithms Analysis Group 48](projects/AlgoAnalysisAssgnmt1_grp48) · [math_2](projects/math_2) · [Minecraft Maze Runner](projects/minecraft-maze-runner)
+[A3_Assessment](projects/A3_Assessment) · [book-grocer](projects/book-grocer) · [C-](projects/C-) · [Database Systems A3](projects/Database_Systems_s3954789_A3) · [interview](projects/interview) · [LeetCode](projects/LeetCode) · [Methodology](projects/Methodology) · [my-pokemon-app](projects/my-pokemon-app) · [Patient0](projects/Patient0) · [Project1](projects/Project1) · [Project1-C--](projects/Project1-C--) · [TheMemoryLeakers Assignment 2](projects/TheMemoryLeakers_COSC1076_Assignment2) · [Vacuum Cleaner APT](projects/Vacuum_clean_apt) · [Admin Dashboard](projects/s3954789-s3946776-a2-HD) · [Algorithms Analysis Group 48](projects/AlgoAnalysisAssgnmt1_grp48) · [math_2](projects/math_2) · [Minecraft Maze Runner](projects/minecraft-maze-runner) · [Colonoscopy Referral Triage](projects/colonoscopy-referral-triage)
 
 ## Technical skills
 
