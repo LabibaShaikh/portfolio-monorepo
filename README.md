@@ -1,4 +1,4 @@
-# Labiba Shaikh
+# Shaikh Naima Labiba
 
 ## Software Engineer | Computer Science Graduate
 
