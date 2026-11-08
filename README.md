@@ -18,6 +18,7 @@ The directories under `projects/` are review-friendly snapshots. The original Gi
 | [Sandworm Apollo](projects/sandworm-apollo) | C++, C, C# | Playable game vertical slice with state-driven interactions and win/loss conditions |
 | [Trading Bot](projects/Trading_Bot) | Pine Script | Modular market-pattern detection library with examples and tests |
 | [Minecraft Maze Runner](projects/minecraft-maze-runner) | C++, Java, Spigot 1.19.4 | Collaborative procedural maze generation, Minecraft world construction and shortest-route visualisation |
+| [Colonoscopy Referral Triage](projects/colonoscopy-referral-triage) | Python, Jupyter, LightGBM, XGBoost, TensorFlow | Machine-learning capstone for referral-priority prediction and clinical-safety triage support |
 | [Colonoscopy Referral Triage](projects/colonoscopy-referral-triage) | To be verified from source | Capstone project focused on clinical referral triage |
 
 ## Additional projects
@@ -44,4 +45,4 @@ Build and test commands are documented only where they were verified from the so
 - [History, attribution, licensing and privacy notes](docs/provenance.md)
 - [Original GitHub repositories](https://github.com/LabibaShaikh?tab=repositories)
 
-The Minecraft Maze Runner source repository is linked in its project page. Its source snapshot was added from the uploaded archive; the archive did not include Git metadata, so the original repository remains the source of truth for complete history.
+The Minecraft Maze Runner source repository is linked in its project page. Its source snapshot was added from the uploaded archive; the archive did not include Git metadata, so the original repository remains the source of truth for complete history. The Colonoscopy Referral Triage project includes privacy-safe notebooks and documentation; patient-level data was excluded.

@@ -12,6 +12,8 @@ The Maze Runner source was added from the uploaded ZIP archive. The archive cont
 
 The capstone entry links to `https://github.com/rmit-computing-technologies/Programming-Project-1.git`. GitHub returned 404 through this session, so no source files, languages or individual contribution claims were copied from it.
 
+An uploaded archive subsequently supplied the capstone README and notebooks. The notebooks were added with outputs cleared. The archive's patient-level CSV and sample patient JSON were excluded because they contain healthcare and operational data.
+
 ## Quality observations
 
 - Strongest recruiter-facing evidence: `OSP_A1`, `OSP_A3`, `Assign1-s12345-s67890`, `s3954789-s3946776-a2`, `s3954789_ML_A2`, `sandworm-apollo` and `Trading_Bot`.
